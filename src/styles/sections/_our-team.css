@@ -1,0 +1,230 @@
+.our-team-section--headers {
+  
+}
+
+.our-team-section--headers-content {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.our-team-section--headers-content_thumb {
+  width: 25%;
+  position: relative;
+
+  img {
+    width: 100%;
+  }
+
+  &:hover>.our-team-section--headers-content_thumb-title, 
+  &:active>.our-team-section--headers-content_thumb-title {
+    opacity: 1;
+    width: 25rem;
+    height: 25rem;
+    margin-left: -12.5rem;
+    margin-top: -12.5rem;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 21.2rem;
+      height: 21.2rem;
+      margin-left: -10.5rem;
+      margin-top: -10.5rem;
+      background: transparent;
+      border: 1px solid $mw-gold;
+    }
+  }
+}
+
+.our-team-section--headers-content_thumb-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 22rem;
+  height: 22rem;
+  margin-left: -11rem;
+  margin-top: -11rem;
+  color: $mw-gold;
+  background: #fff;
+  opacity: 0;
+  transition: all .3s ease;
+
+  &:hover, &:active {
+    color: $mw-gold;
+    text-decoration: none;
+  }
+}
+
+.headers-content_thumb-title-name {
+  max-width: 20rem;
+  margin-bottom: 1.7rem;
+  @mixin font-bold;
+  fs: 1.7em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.headers-content_thumb-title-position {
+  max-width: 20rem;
+  @mixin font-light;
+  fs: 1.4em;
+  /*margin-bottom: .6rem;*/
+  margin-bottom: .3rem;
+  text-align: center;
+}
+
+.our-team-section--info-group {
+  /*display: none;*/
+}
+
+.our-team-section--info {
+  margin-top: 13.1rem;
+
+  .slide-group {
+    /*padding-bottom: 42.97%;*/ /* silder is now responsive without specifying an explicit height */
+  }
+}
+
+.our-team-section--info_person {
+  
+}
+
+.our-team-section--info_person-img {
+  padding: 0;
+  img {
+    float: right;
+    padding-right: 3rem;
+  }
+}
+
+.our-team-section--info_person-data {
+  max-width: 49.6rem;
+  padding-right: 0;
+  padding-left: 3rem;
+}
+
+.our-team-section--info_person-data--title {
+  margin-bottom: 3.7rem;
+  color: $mw-gold;
+
+  .info_person-data--title-name {
+    @mixin font-bold;
+    fs: 1.7em;
+  }
+
+  .info_person-data--title-position {
+    @mixin font-light;
+    fs: 1.4em;
+  }
+}
+
+.our-team-section--info_person-data--description {
+  margin-bottom: 5.4rem;
+  @mixin open-sans-light;
+  fs: 1.7em;
+  text-align: justify;
+
+  a:link, a:visited {
+    color: $mw-gold;
+  }
+
+  a:hover, a:active, a:focus {
+    color: $mw-gold;
+  }
+}
+
+.our-team-section--info_person-data--quote {
+  /*position: relative;*/
+  /*margin-left: 4.6rem;*/
+  position: absolute;
+  margin-left: 4.6rem;
+  width: 100%;
+  color: $mw-gold;
+
+  .opening-quote {
+    left: -5.1rem;
+    top: -1rem;
+  }
+
+  .closing-quote {
+    top: auto;
+    bottom: -2rem;
+  }
+}
+
+.our-team-section--info_person-data--quote-text {
+  height: 100%;
+  margin-bottom: 3.4rem;
+  @mixin font-bold;
+  fs: 1.7em;
+}
+
+.referrer-signature {
+  @mixin font-light;
+  fs: 1.4em;
+  color: $mw-text;
+}
+
+.referrer-signature-name {
+
+}
+
+.referrer-signature-position {
+
+}
+
+.our-team-section--info-control {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 3.4rem;
+  text-transform: uppercase;
+}
+
+.our-team-section--info-control-btn {
+  display: inline-block;
+  margin-right: 4.7rem;
+  @mixin font-light;
+  fs: 1.2rem;
+  color: $mw-gold;
+  cursor: pointer;
+
+  &:last-child {
+    margin-right: 8.4rem;
+  }
+
+  &:hover, &:active {
+    color: $mw-text;
+    text-decoration: none;
+
+    & svg {
+      stroke: $mw-text;
+    }
+  }
+
+  svg {
+    fill: none;
+    stroke: $mw-gold;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+  }
+
+  .prev-arrow {
+    margin-right: .8rem;
+    transform: rotate(90deg);
+  }
+   .next-arrow {
+    margin-left: .8rem;
+    transform: rotate(-90deg);
+  }
+
+}
+
+ 

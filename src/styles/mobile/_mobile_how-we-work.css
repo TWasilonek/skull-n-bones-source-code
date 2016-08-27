@@ -1,0 +1,103 @@
+/*.how-we-work-section--person_mobile {*/
+@media only screen and (max-width: 1000px) {
+  .how-we-work-section--person {
+    flex-direction: column;
+    align-items: center;
+    
+    .how-we-work-section--person__info {
+      margin-top: 8rem; 
+      padding-left: 0;
+      width: 60%;
+    }
+
+    .how-we-work-section--person__info-content {
+      max-width: 70rem;
+    }
+
+    .how-we-work-section--person__image {
+      width: 100%;
+
+      img {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    .section-image--right-arrow {
+      display: none;
+    }
+
+    .section-image--left-arrow {
+      display: none;
+    }
+
+    .section-image--up-arrow {
+      display: block;
+    }
+  }
+
+  .how-we-work-section--person:nth-of-type(2) {
+    flex-direction: column-reverse;
+    margin-top: 6rem;
+  }
+}
+
+
+/*.mobile-column-reverse {
+  flex-direction: column-reverse;
+}*/
+
+@media only screen and (max-width: 767px) {
+  /*.how-we-work-section--person_mobile {*/
+  .how-we-work-section--person {
+    
+    .how-we-work-section--person__info {
+      width: 80%;
+    }
+
+    .how-we-work-section--person__info-content {
+      max-width: 70rem;
+      text-align: center;
+    }  
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .how-we-work-section {
+    margin-bottom: 2rem;
+  }
+
+  .person-signature {
+    margin-top: 4rem;
+  }
+
+  .opening-quote {
+    top: -7rem;
+    left: -2rem;
+  }
+
+  .closing-quote {
+    right: 2.5rem;
+  }
+
+  /*.how-we-work-section--person_mobile {
+*/.how-we-work-section--person {
+    
+    .how-we-work-section--person__info {
+      width: 100%;
+      padding-right: 2.5rem;
+      padding-left: 2.5rem;
+    }
+
+    .how-we-work-section--person__info-content {
+      max-width: none;
+    }  
+
+    .how-we-work-section--person__info-content--number {
+      top: -94px;
+      left: 50%;
+      margin-left: -8.35rem;
+    }
+  }
+}
+

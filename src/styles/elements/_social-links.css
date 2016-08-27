@@ -1,0 +1,62 @@
+.social-links {
+  
+  .social-links-single-link {
+    display: inline-block;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .social-svg {
+    fill: #fff;
+    transition: all .15s ease; 
+
+    &:hover, &:active {
+      fill: $mw-gold;
+    }
+  }
+
+  .fb-link {
+    /* background-image: url(./assets/images/fb.png); */
+
+  }
+
+  .ytb-link {
+    /* background-image: url(./assets/images/ytb.png); */
+  }
+
+  .twt-link {
+    /* background-image: url(./assets/images/twt.png); */
+  }
+
+  .ln-link {
+    /* background-image: url(./assets/images/ln.png); */
+  }
+}
+
+.main-nav-attached .social-links {
+  .social-svg {
+
+    &:hover, &:active {
+      fill: #fff;
+    }
+  }
+}
+
+/* form social links - just color and hover styling */
+.contact-section--social {
+    padding-left: 0;
+    margin-top: 2.5rem;
+  .social-links-single-link {
+    margin-right: 2.2rem;
+  }
+
+  .social-svg {
+    fill: #b1b1b1;
+
+    &:hover, &:active {
+      fill: $mw-gold;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+
+.is-hidden {
+  display: none;
+}
+
+.is-block {
+  display: block; 
+}
+
+.is-flex {
+  display: flex;
+}
+
+.is-flex-inline {
+  display: inline-flex;
+}
+
+.mw-gold {
+  color: $mw-gold;
+}

@@ -1,0 +1,9 @@
+.logo {
+  /*position: relative;*/
+  top: 11rem;
+  position: absolute;
+  left: 50%;
+  margin-left: -11.7rem;
+  width: 23.4rem;
+  z-index: 10;
+}

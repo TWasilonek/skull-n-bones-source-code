@@ -1,0 +1,11 @@
+/* Accordion element */
+.accordion-block {
+
+  .accordion-panel, .accordion-form-panel {
+    display: none;
+  }
+
+  .accordion-panel-first {
+    display: block;
+  }
+}

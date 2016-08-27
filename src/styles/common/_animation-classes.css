@@ -1,0 +1,27 @@
+.animate-header {
+  animation: header-image-animation;
+  animation-duration: 90s;
+  animation-duration: 90s;
+  animation-timing-function: linear;
+  animation-delay: 0;
+  animation-iteration-count: infinite;
+}
+
+.animate-logo {
+  animation: logo-animation;
+  animation-duration: .8s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+}
+
+.animate-header-content {
+  position: absolute;
+  opacity: 0;
+  margin-top: 0;
+  animation: header-content-animation;
+  animation-timing-function: ease-out;
+  animation-duration: .7s;
+  animation-delay: .8s;
+  animation-fill-mode: forwards;
+}

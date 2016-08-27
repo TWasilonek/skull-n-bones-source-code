@@ -1,0 +1,133 @@
+.how-we-work-section {
+  .slide-group {
+    /*padding-bottom: 64.42%;*/ /* silder is now responsive without specifying an explicit height */
+  }
+}
+    
+
+.how-we-work-section--content {
+  position: relative;
+}
+
+.how-we-work-section--person {
+  display: flex;
+  justify-content: space-between;
+
+  &:nth-of-type(odd) .how-we-work-section--person__info {
+    padding-left: 4.9rem;
+    justify-content: flex-start;
+  }
+
+  &:nth-of-type(even) .how-we-work-section--person__info {
+    padding-right: 4.9rem;
+    justify-content: flex-end;
+  }
+}
+
+.how-we-work-section--person__image {
+  width: 50%;
+  position: relative;
+}
+
+.section-image--right-arrow {
+  position: absolute;
+  top: 50%;
+  margin-top: -19px;
+  left: -1px;
+  width: 0; 
+  height: 0; 
+  border-top: 19px solid transparent;
+  border-bottom: 19px solid transparent;
+  
+  border-left: 21px solid white;
+}
+
+.section-image--left-arrow {
+  position: absolute;
+  top: 50%;
+  margin-top: -19px;
+  right: -1px;
+  width: 0; 
+  height: 0; 
+  border-top: 19px solid transparent;
+  border-bottom: 19px solid transparent; 
+  
+  border-right: 21px solid white; 
+}
+
+.section-image--up-arrow {
+  display: none;
+  position: absolute;
+  bottom: -1px;
+  margin-left: -10px;
+  left: 50%;
+  width: 0; 
+  height: 0; 
+  border-left: 19px solid transparent;
+  border-right: 19px solid transparent;
+  
+  border-bottom: 21px solid white;
+}
+
+.how-we-work-section--person__info {
+  display: flex;
+  align-items: center;
+  text-align: justify;
+  width: 50%;
+}
+
+.how-we-work-section--person__info-content {
+  position: relative;
+  max-width: 44.4rem;
+  fs: 10px;
+}
+/*
+.how-how-we-work-section--person__info-content--number {
+  position: absolute;
+  top: -94px;
+  left: -6px;
+  @mixin font-bold;
+  fs: 15em;
+  color: rgba(223, 177, 79, .1);
+}*/
+
+.how-we-work-section--person__info-content--text {
+  position: relative;
+  @mixin open-sans-light;
+  fs: 1.7em;
+  font-style: italic;
+}
+
+.opening-quote, .closing-quote {
+  position: absolute;
+  @mixin font-bold;
+  fs: 8.5rem;
+  color: $mw-gold;
+}
+
+.opening-quote {
+  top: -6rem;
+  left: -6rem;
+}
+
+.closing-quote {
+  top: auto;
+  bottom: auto;
+  right: -1.5rem;
+}
+
+.person-signature {
+  margin-top: 6rem;
+  @mixin open-sans-light;
+  fs: 1.4em;
+  /*text-align: right;*/
+}
+
+.person-signature-name {
+  @mixin open-sans-semibold;
+  color: $mw-gold;
+}
+
+.person-signature-position {
+
+}

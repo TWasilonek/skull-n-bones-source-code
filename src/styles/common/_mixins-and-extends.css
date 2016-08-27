@@ -1,0 +1,39 @@
+/*  Mixins and extends to use throught the project */
+
+@define-mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@define-mixin font-light {
+  font-family: 'montserrat-light', sans-serif;
+  font-weight: 300;
+}
+
+@define-mixin font-reg {
+  font-family: 'montserrat-regular', sans-serif;
+  font-weight: 400;
+}
+
+@define-mixin font-bold {
+  font-family: 'montserrat-bold', sans-serif;
+  font-weight: 700;
+}
+
+@define-mixin open-sans-light {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+@define-mixin open-sans-semibold {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+}
+
+/* @define-mixin animate-height $height {
+  @keyframes mobile-menu-animate-height {
+    from {height: 0; }
+    to { height: $height; }
+  }
+} */

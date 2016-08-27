@@ -1,0 +1,50 @@
+@media only screen and (max-width: 991px) {
+  .what-we-do-section {
+    padding-right: 13.5rem;
+    padding-left: 13.5rem;
+  }
+
+  .what-we-do-section--content {
+
+    &:last-child {
+      margin-top: 0;
+    }
+  }
+
+  .what-we-do-section--topic {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .what-we-do-section--content:last-child .what-we-do-section--topic {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .what-we-do-section--topic__title-text {
+    /*max-width: 70%;*/
+    fs: 1.5em;
+  }
+
+  .what-we-do-section--topic__content-text {
+    fs: 1.5em;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .what-we-do-section {
+    padding-right: 5rem;
+    padding-left: 5rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .what-we-do-section {
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+
+    .what-we-do-section--more_btn {
+      display: flex;
+    }
+  }
+}

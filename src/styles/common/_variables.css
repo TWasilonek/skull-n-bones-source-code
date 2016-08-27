@@ -1,0 +1,11 @@
+/* Variables to use in the project */
+$mw-gold: #dfb14f;
+$mw-text: #737373;
+$mw-dark: #211e19;
+$mw-mocha: #524b3c;
+
+/* Aliases */
+@alias {
+  fs: font-size;
+}
+

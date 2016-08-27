@@ -1,0 +1,12 @@
+noscript {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 1rem 1.5rem;
+  fs: 1.4em;
+  color: #a00707;
+  background: #ffcccc;
+  border: 1px solid #a00707;
+  border-radius: 5px;
+  z-index: 9999;
+}
