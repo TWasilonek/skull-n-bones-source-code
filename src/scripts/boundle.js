@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', function(){
-    // var one = require("./one.js");
+    var MainLoop = require("./main-loop.js");
+    
+    loop = new MainLoop();
+    loop.init();
     
 });

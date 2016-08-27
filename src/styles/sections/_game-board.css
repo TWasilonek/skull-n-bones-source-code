@@ -1,0 +1,21 @@
+.game-board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 45rem;
+    height: 45rem;
+    background: url(./assets/images/pixel_grid.jpg) no-repeat;
+    overflow: hidden;
+}
+
+.field {
+    width: 15rem;
+    height: 15rem;
+    color: white;
+    background: rgba(0,0,0, .5);
+    border: 1px solid rgba(255,255,255, .7);
+    
+    &:hover {
+        background: rgba(0,0,0, .8);
+        cursor: pointer;
+    }
+}

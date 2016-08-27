@@ -54,10 +54,10 @@ gulp.task('browserify', function(){
 // The images task
 gulp.task('images', function(){
   return gulp.src([
-    './src/assets/images/original/*.png',
-    './src/assets/images/original/*.jpg',
-    './src/assets/images/original/*.svg',
-    './src/assets/images/original/*.gif'
+    './src/assets/images/*.png',
+    './src/assets/images/*.jpg',
+    './src/assets/images/*.svg',
+    './src/assets/images/*.gif'
     ])
     .pipe(imagemin())
     /*.pipe(gulp.dest('./src/assets/images/min')*/
@@ -93,10 +93,10 @@ gulp.task('browsersync', function(cb) {
 //watcher for postCSS and jshint
   gulp.task('watch', function(){
     gulp.watch([
-    './src/assets/images/original/*.png',
-    './src/assets/images/original/*.jpg',
-    './src/assets/images/original/*.svg',
-    './src/assets/images/original/*.gif'
+    './src/assets/images/*.png',
+    './src/assets/images/*.jpg',
+    './src/assets/images/*.svg',
+    './src/assets/images/*.gif'
     ], gulp.series('images'));
     gulp.watch([ 
       './src/styles/*.css',

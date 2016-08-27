@@ -1,0 +1,7 @@
+.game-state-display {
+    @mixin flex-center-sb;
+    width: 80%;
+    height: 10rem;
+    margin-bottom: 8rem;
+    border: 1px solid black;
+}
