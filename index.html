@@ -34,21 +34,25 @@
     <main class="game">
       <section class="game-state-display center-block">
         <div class="player player-1">Player 1</div>
-        <div class="score">Score</div>
+        <div class="score">
+          <span class="score-title">Score</span>
+          <ol class="player-score score-player-1"></ol>
+          <ol class="player-score score-player-2"></ol>
+        </div>
         <div class="player player-2">Player 2</div>
       </section>
       <!-- game-state-display end -->
       
       <section class="game-board center-block">
-        <div class="field field-1"></div>
-        <div class="field field-2"></div>
-        <div class="field field-3"></div>
-        <div class="field field-4"></div>
-        <div class="field field-5"></div>
-        <div class="field field-6"></div>
-        <div class="field field-7"></div>
-        <div class="field field-8"></div>
-        <div class="field field-9"></div>
+        <div class="field field-1" id="field_1"></div>
+        <div class="field field-2" id="field_2"></div>
+        <div class="field field-3" id="field_3"></div>
+        <div class="field field-4" id="field_4"></div>
+        <div class="field field-5" id="field_5"></div>
+        <div class="field field-6" id="field_6"></div>
+        <div class="field field-7" id="field_7"></div>
+        <div class="field field-8" id="field_8"></div>
+        <div class="field field-9" id="field_9"></div>
       </section>
       <!-- game-board end -->
     </main>

@@ -15,6 +15,17 @@
   display: inline-flex;
 }
 
-.mw-gold {
-  color: $mw-gold;
+[data-taken="p1"] {
+  background: red;
+  &:hover {
+     background: red;
+  }
 }
+
+[data-taken="p2"] {
+  background: green;
+   &:hover {
+     background: green;
+  }
+}
+

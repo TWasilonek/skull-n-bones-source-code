@@ -27,7 +27,7 @@ gulp.task('html', function () {
 
 // browserify
 gulp.task('browserify', function(){
-  browserify('./src/scripts/boundle.js')
+  return browserify('./src/scripts/boundle.js')
     .bundle()
     .pipe(plumber({
       errorHandler: onError
@@ -105,7 +105,7 @@ gulp.task('browsersync', function(cb) {
       './src/styles/elements/*.css',
       './src/styles/mobile/*.css' ], gulp.series('css'));
     // gulp.watch('./src/scripts/*.js', gulp.series('jshint'));
-    gulp.watch('./src/scripts/*.js', gulp.series('browserify'));
+    gulp.watch('./src/scripts/**', gulp.series('browserify'));
     gulp.watch('./*.html', gulp.series('html'));
   });
 

@@ -543,8 +543,17 @@ noscript {
     display: -ms-inline-flexbox;
     display: inline-flex
 }
-.mw-gold {
-    color: $mw-gold
+[data-taken="p1"] {
+    background: red
+}
+[data-taken="p1"]:hover {
+    background: red
+}
+[data-taken="p2"] {
+    background: green
+}
+[data-taken="p2"]:hover {
+    background: green
 }
 
 /* ----- Mobile and RWD ----- */
