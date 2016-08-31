@@ -1,6 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 document.addEventListener('DOMContentLoaded', function(){
     var MainLoop = require("./main-loop.js");
+    var popUp = require("./pop-up.js");
     
     /* vars */
     var p1 = 'Tomek';
@@ -9,8 +10,11 @@ document.addEventListener('DOMContentLoaded', function(){
     var loop = new MainLoop(p1, p2);
     loop.init();
     
+    var popUpsControl = new popUp();
+    popUpsControl.init();
+    
 });
-},{"./main-loop.js":2}],2:[function(require,module,exports){
+},{"./main-loop.js":2,"./pop-up.js":3}],2:[function(require,module,exports){
 var RoundsHandler = require("./rounds-handler.js");
 
 function MainLoop(p1,p2) {
@@ -116,7 +120,55 @@ function MainLoop(p1,p2) {
 
 // export the main loop
 module.exports = MainLoop;
-},{"./rounds-handler.js":3}],3:[function(require,module,exports){
+},{"./rounds-handler.js":4}],3:[function(require,module,exports){
+function PopUp () {
+    //vars
+    var _this = this;
+    var popUpBg = $('.pop-up-background');
+    var popUps = $('.pop-up');
+    
+    var windows = {
+        story : $('#story-pop-up'),
+        token : $('#token-pop-up'),
+        round : $('#round-win-pop-up'),
+        game  : $('#game-win-pop-up')
+    };
+    
+    var buttons = {
+        'choose token'  : $('#story-cta'),
+        'play'          : $('#play-game'),
+        'next round'    : $('#next-round'),
+        'play again'    : $('#play-again')
+    };
+    
+    // init
+    this.init = function() {
+        popUps.hide();
+        windows['story'].show();
+        
+        // event listeners for buttons
+        buttons['choose token'].on('click', function(){
+            windows['story'].fadeOut();
+            windows['token'].fadeIn();
+        });
+        buttons['play'].on('click', function(){
+            windows['token'].fadeOut();
+            popUpBg.hide();
+        });
+        buttons['next round'].on('click', function(){
+            windows['round'].fadeOut();
+            popUpBg.hide();
+        });
+        buttons['play again'].on('click', function(){
+            windows['game'].fadeOut();
+            popUpBg.hide();
+        });
+    }
+    
+}
+
+module.exports = PopUp;
+},{}],4:[function(require,module,exports){
 /*
 RoundsHandler checks if someone has won, and updates the scores table.
 Takes params:
@@ -125,14 +177,15 @@ Takes params:
     @ maxWins (integer) => the number of wins which is needed for someone to win
 */ 
 
+// import dependencies
+var popUps = require("./pop-up.js");
+
 function RoundsHandler(p1, p2, maxWins) {
     var _this = this;
     var maxWins = maxWins || 3;
     
     // wins counter
     var wins = {}
-    wins[p1] = 0;
-    wins[p2] = 0;
     
     // displays
     var scoresDisplayForP1 = $('.score-player-1');
@@ -142,6 +195,9 @@ function RoundsHandler(p1, p2, maxWins) {
         //associate players with scores tables
         scoresDisplayForP1.attr('data-player', p1);
         scoresDisplayForP2.attr('data-player', p2);
+        // add initial wins to players
+        wins[p1] = 0;
+        wins[p2] = 0;
     };
     
      // update the scores
@@ -175,4 +231,4 @@ function RoundsHandler(p1, p2, maxWins) {
 }
 
 module.exports = RoundsHandler;
-},{}]},{},[1]);
+},{"./pop-up.js":3}]},{},[1]);

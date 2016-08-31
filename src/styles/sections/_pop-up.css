@@ -1,0 +1,64 @@
+.pop-up {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 30rem;
+    width: 60rem;
+    margin-left: -30rem;
+    margin-top: -15rem;
+    padding: 3rem;
+    background: #eee;
+}
+
+.pop-up-background {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0, .4);
+}
+
+/* story and introduction */
+.story--pop-up {
+    display: block;
+}
+
+.story-images {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 3rem;
+    
+    img {
+        display: block;
+        width: 150px;
+        height: 150px;
+        border: 2px solid black;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+}
+
+.story-text {
+    font-size: 1.8em;
+    text-align: center;
+}
+
+.story-btn {
+    float: right;
+    margin-top: 2rem;
+}
+
+/* token choice */
+.token--pop-up {
+}
+
+/* round win */
+.round-win--pop-up {
+    
+}
+
+/* game win */
+.game-win--pop-up {
+    
+}

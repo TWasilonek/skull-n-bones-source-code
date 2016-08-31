@@ -12,6 +12,7 @@
 @import sections/game;
 @import sections/game-state;
 @import sections/game-board;
+@import sections/pop-up;
 
 /* ----- ELements ----- */
 @import elements/logo;

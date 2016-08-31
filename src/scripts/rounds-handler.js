@@ -6,14 +6,15 @@ Takes params:
     @ maxWins (integer) => the number of wins which is needed for someone to win
 */ 
 
+// import dependencies
+var popUps = require("./pop-up.js");
+
 function RoundsHandler(p1, p2, maxWins) {
     var _this = this;
     var maxWins = maxWins || 3;
     
     // wins counter
     var wins = {}
-    wins[p1] = 0;
-    wins[p2] = 0;
     
     // displays
     var scoresDisplayForP1 = $('.score-player-1');
@@ -23,6 +24,9 @@ function RoundsHandler(p1, p2, maxWins) {
         //associate players with scores tables
         scoresDisplayForP1.attr('data-player', p1);
         scoresDisplayForP2.attr('data-player', p2);
+        // add initial wins to players
+        wins[p1] = 0;
+        wins[p2] = 0;
     };
     
      // update the scores
