@@ -1,0 +1,13 @@
+[data-taken="skull"] {
+    background: red;
+    &:hover {
+        background: red;
+    }
+}
+
+[data-taken="bones"] {
+    background: green;
+    &:hover {
+        background: green;
+    }
+}

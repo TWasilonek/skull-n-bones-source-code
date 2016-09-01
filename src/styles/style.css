@@ -18,6 +18,7 @@
 @import elements/logo;
 @import common/animations;
 @import common/animation-classes;
+@import elements/token;
 
 /* ----- Helper and Plugins ----- */
 @import common/state-classes;

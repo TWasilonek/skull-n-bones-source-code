@@ -15,7 +15,7 @@
   display: inline-flex;
 }
 
-[data-taken="p1"] {
+/*[data-taken="p1"] {
   background: red;
   &:hover {
      background: red;
@@ -27,5 +27,5 @@
    &:hover {
      background: green;
   }
-}
+}*/
 

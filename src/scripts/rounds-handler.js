@@ -7,7 +7,8 @@ Takes params:
 */ 
 
 // import dependencies
-var popUps = require("./pop-up.js");
+var PopUps = require("./pop-up.js");
+var popUps = new PopUps();
 
 function RoundsHandler(p1, p2, maxWins) {
     var _this = this;
@@ -22,41 +23,43 @@ function RoundsHandler(p1, p2, maxWins) {
     
     this.init = function() {
         //associate players with scores tables
-        scoresDisplayForP1.attr('data-player', p1);
-        scoresDisplayForP2.attr('data-player', p2);
+        scoresDisplayForP1.attr('data-player', p1.name);
+        scoresDisplayForP2.attr('data-player', p2.name);
         // add initial wins to players
-        wins[p1] = 0;
-        wins[p2] = 0;
+        wins[p1.name] = 0;
+        wins[p2.name] = 0;
     };
     
      // update the scores
     this.updateScoresTable = function(winner) {
-        wins[winner]++
-        var newWin = '<li class="player-win">' + wins[winner] + '</li>'
+        wins[winner.name]++
+        var newWin = '<li class="player-win">' + wins[winner.name] + '</li>'
         // show score in UI
-        $('.player-score[data-player="'+ winner +'"]').append(newWin);
-        _this.checkGameWinner();
+        $('.player-score[data-player="'+ winner.name +'"]').append(newWin);
+        _this.checkGameWinner(winner);
+    };
+    
+    // draw handler
+    this.drawHandler = function(){
+        popUps.showDraw();
     };
     
     // clear the scores
-    this.clearScoresTable = function(gameWinner) {
-        alert(gameWinner + ' is the winner!');
+    this.clearScoresTable = function() {
         $('.player-score').empty();
-        wins[p1] = 0;
-        wins[p2] = 0;
+        wins[p1.name] = 0;
+        wins[p2.name] = 0;
     };
     
     // check if any of the players has won the game
-    this.checkGameWinner = function() {
-        // if any of the players has 3 wins - end game
-        for (var player in wins) {
-            if (wins.hasOwnProperty(player)) {
-                if (wins[player] === 3) {
-                    _this.clearScoresTable(player);
-                }   
-            }
+    this.checkGameWinner = function(roundWinner) {
+        if (wins[roundWinner.name] === 3) {
+            popUps.showGameWinner(roundWinner.name);
+            _this.clearScoresTable();
+        } else {
+            popUps.showRoundWinner(roundWinner.name);
         }
-    }
+    };
 }
 
 module.exports = RoundsHandler;

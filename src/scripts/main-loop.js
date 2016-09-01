@@ -38,30 +38,28 @@ function MainLoop(p1,p2) {
             // check which player's turn is and add its token
             if (turns%2 === 0){
                 turns++;
-                $targetField.attr('data-taken', 'p1');
-                $targetField.attr('data-player', this.players[0]);
+                $targetField.attr('data-taken', p1.token);
+                $targetField.attr('data-player', p1.name);
             } else {
                 turns++;
-                $targetField.attr('data-taken', 'p2');
-                $targetField.attr('data-player', this.players[1]);
+                $targetField.attr('data-taken', p2.token);
+                $targetField.attr('data-player', p2.name);
             }   
         }
         // check if someone has won
         _this.checkWin();
         // check if the board is full
         if (turns === 9) {
-            alert('Draw!');
+            rounds.drawHandler();
             _this.boardReset();
         }
     }
     
     this.checkWin = function(){
-        var winner = '';
+        var winner;
         $.each(this.players, function(i, el){
             if (_this.checkFields(el)) {
                 winner = el;
-                // show that player won
-                alert('player ' + el + ' has won!');
                 // add score to player and check if there is a game winner
                 rounds.updateScoresTable(winner);
                 // finish loop
@@ -77,14 +75,14 @@ function MainLoop(p1,p2) {
     }
     
     this.checkFields = function(player) {
-        if (spot1.attr('data-player') === player && spot2.attr('data-player') === player && spot3.attr('data-player') === player ||
-			spot4.attr('data-player') === player && spot5.attr('data-player') === player && spot6.attr('data-player') === player ||
-			spot7.attr('data-player') === player && spot8.attr('data-player') === player && spot9.attr('data-player') === player ||
-			spot1.attr('data-player') === player && spot4.attr('data-player') === player && spot7.attr('data-player') === player ||
-			spot2.attr('data-player') === player && spot5.attr('data-player') === player && spot8.attr('data-player') === player ||
-			spot3.attr('data-player') === player && spot6.attr('data-player') === player && spot9.attr('data-player') === player ||
-			spot1.attr('data-player') === player && spot5.attr('data-player') === player && spot9.attr('data-player') === player ||
-			spot3.attr('data-player') === player && spot5.attr('data-player') === player && spot7.attr('data-player') === player
+        if (spot1.attr('data-player') === player.name && spot2.attr('data-player') === player.name && spot3.attr('data-player') === player.name ||
+			spot4.attr('data-player') === player.name && spot5.attr('data-player') === player.name && spot6.attr('data-player') === player.name ||
+			spot7.attr('data-player') === player.name && spot8.attr('data-player') === player.name && spot9.attr('data-player') === player.name ||
+			spot1.attr('data-player') === player.name && spot4.attr('data-player') === player.name && spot7.attr('data-player') === player.name ||
+			spot2.attr('data-player') === player.name && spot5.attr('data-player') === player.name && spot8.attr('data-player') === player.name ||
+			spot3.attr('data-player') === player.name && spot6.attr('data-player') === player.name && spot9.attr('data-player') === player.name ||
+			spot1.attr('data-player') === player.name && spot5.attr('data-player') === player.name && spot9.attr('data-player') === player.name ||
+			spot3.attr('data-player') === player.name && spot5.attr('data-player') === player.name && spot7.attr('data-player') === player.name
         ) {
             return true;
         } else {

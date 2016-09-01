@@ -583,6 +583,18 @@ noscript {
     animation-delay: .8s;
     animation-fill-mode: forwards;
 }
+[data-taken="skull"] {
+    background: red;
+}
+[data-taken="skull"]:hover {
+    background: red;
+}
+[data-taken="bones"] {
+    background: green;
+}
+[data-taken="bones"]:hover {
+    background: green;
+}
 
 /* ----- Helper and Plugins ----- */
 .is-hidden {
@@ -599,18 +611,19 @@ noscript {
     display: -ms-inline-flexbox;
     display: inline-flex;
 }
-[data-taken="p1"] {
-    background: red;
+/*[data-taken="p1"] {
+  background: red;
+  &:hover {
+     background: red;
+  }
 }
-[data-taken="p1"]:hover {
-    background: red;
-}
+
 [data-taken="p2"] {
-    background: green;
-}
-[data-taken="p2"]:hover {
-    background: green;
-}
+  background: green;
+   &:hover {
+     background: green;
+  }
+}*/
 
 /* ----- Mobile and RWD ----- */
 

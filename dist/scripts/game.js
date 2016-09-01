@@ -2,10 +2,17 @@
 document.addEventListener('DOMContentLoaded', function(){
     var MainLoop = require("./main-loop.js");
     var popUp = require("./pop-up.js");
+    var Token = require("./token.js");
     
     /* vars */
-    var p1 = 'Tomek';
-    var p2 = 'Komputer'
+    var p1 = {
+        name : 'Tomek',
+        token: ''
+    };
+    var p2 = {
+        name : 'Komputer',
+        token: ''
+    };
     
     var loop = new MainLoop(p1, p2);
     loop.init();
@@ -13,8 +20,11 @@ document.addEventListener('DOMContentLoaded', function(){
     var popUpsControl = new popUp();
     popUpsControl.init();
     
+    var tokenControl = new Token(p1, p2);
+    tokenControl.init();
+    
 });
-},{"./main-loop.js":2,"./pop-up.js":3}],2:[function(require,module,exports){
+},{"./main-loop.js":2,"./pop-up.js":3,"./token.js":5}],2:[function(require,module,exports){
 var RoundsHandler = require("./rounds-handler.js");
 
 function MainLoop(p1,p2) {
@@ -55,30 +65,28 @@ function MainLoop(p1,p2) {
             // check which player's turn is and add its token
             if (turns%2 === 0){
                 turns++;
-                $targetField.attr('data-taken', 'p1');
-                $targetField.attr('data-player', this.players[0]);
+                $targetField.attr('data-taken', p1.token);
+                $targetField.attr('data-player', p1.name);
             } else {
                 turns++;
-                $targetField.attr('data-taken', 'p2');
-                $targetField.attr('data-player', this.players[1]);
+                $targetField.attr('data-taken', p2.token);
+                $targetField.attr('data-player', p2.name);
             }   
         }
         // check if someone has won
         _this.checkWin();
         // check if the board is full
         if (turns === 9) {
-            alert('Draw!');
+            rounds.drawHandler();
             _this.boardReset();
         }
     }
     
     this.checkWin = function(){
-        var winner = '';
+        var winner;
         $.each(this.players, function(i, el){
             if (_this.checkFields(el)) {
                 winner = el;
-                // show that player won
-                alert('player ' + el + ' has won!');
                 // add score to player and check if there is a game winner
                 rounds.updateScoresTable(winner);
                 // finish loop
@@ -94,14 +102,14 @@ function MainLoop(p1,p2) {
     }
     
     this.checkFields = function(player) {
-        if (spot1.attr('data-player') === player && spot2.attr('data-player') === player && spot3.attr('data-player') === player ||
-			spot4.attr('data-player') === player && spot5.attr('data-player') === player && spot6.attr('data-player') === player ||
-			spot7.attr('data-player') === player && spot8.attr('data-player') === player && spot9.attr('data-player') === player ||
-			spot1.attr('data-player') === player && spot4.attr('data-player') === player && spot7.attr('data-player') === player ||
-			spot2.attr('data-player') === player && spot5.attr('data-player') === player && spot8.attr('data-player') === player ||
-			spot3.attr('data-player') === player && spot6.attr('data-player') === player && spot9.attr('data-player') === player ||
-			spot1.attr('data-player') === player && spot5.attr('data-player') === player && spot9.attr('data-player') === player ||
-			spot3.attr('data-player') === player && spot5.attr('data-player') === player && spot7.attr('data-player') === player
+        if (spot1.attr('data-player') === player.name && spot2.attr('data-player') === player.name && spot3.attr('data-player') === player.name ||
+			spot4.attr('data-player') === player.name && spot5.attr('data-player') === player.name && spot6.attr('data-player') === player.name ||
+			spot7.attr('data-player') === player.name && spot8.attr('data-player') === player.name && spot9.attr('data-player') === player.name ||
+			spot1.attr('data-player') === player.name && spot4.attr('data-player') === player.name && spot7.attr('data-player') === player.name ||
+			spot2.attr('data-player') === player.name && spot5.attr('data-player') === player.name && spot8.attr('data-player') === player.name ||
+			spot3.attr('data-player') === player.name && spot6.attr('data-player') === player.name && spot9.attr('data-player') === player.name ||
+			spot1.attr('data-player') === player.name && spot5.attr('data-player') === player.name && spot9.attr('data-player') === player.name ||
+			spot3.attr('data-player') === player.name && spot5.attr('data-player') === player.name && spot7.attr('data-player') === player.name
         ) {
             return true;
         } else {
@@ -131,6 +139,7 @@ function PopUp () {
         story : $('#story-pop-up'),
         token : $('#token-pop-up'),
         round : $('#round-win-pop-up'),
+        draw  : $('#round-draw-pop-up'),
         game  : $('#game-win-pop-up')
     };
     
@@ -138,6 +147,7 @@ function PopUp () {
         'choose token'  : $('#story-cta'),
         'play'          : $('#play-game'),
         'next round'    : $('#next-round'),
+        'draw round'    : $('#draw-next-round'),
         'play again'    : $('#play-again')
     };
     
@@ -153,19 +163,47 @@ function PopUp () {
         });
         buttons['play'].on('click', function(){
             windows['token'].fadeOut();
-            popUpBg.hide();
+            popUpBg.fadeOut();
         });
         buttons['next round'].on('click', function(){
-            windows['round'].fadeOut();
-            popUpBg.hide();
+            windows['round'].fadeOut(function(){
+                windows['round'].find('#round-winner').text('');
+            });
+            popUpBg.fadeOut();
+        });
+        buttons['draw round'].on('click', function(){
+            windows['draw'].fadeOut();
+            popUpBg.fadeOut();
         });
         buttons['play again'].on('click', function(){
-            windows['game'].fadeOut();
-            popUpBg.hide();
+            windows['game'].fadeOut(function(){
+                windows['game'].find('#game-winner').text(''); 
+                buttons['choose token'].click();
+            });
         });
-    }
+    };
     
-}
+    // show round winner
+    this.showRoundWinner = function (player) {
+        windows['round'].find('#round-winner').text(player);
+        windows['round'].fadeIn();
+        popUpBg.fadeIn();
+    };
+    
+    // show draw
+    this.showDraw = function () {
+        windows['draw'].fadeIn();
+        popUpBg.fadeIn();
+    };
+    
+    // show game winner
+    this.showGameWinner = function (player) {
+        windows['game'].find('#game-winner').text(player);
+        windows['game'].fadeIn();
+        popUpBg.fadeIn();
+    };
+    
+};
 
 module.exports = PopUp;
 },{}],4:[function(require,module,exports){
@@ -178,7 +216,8 @@ Takes params:
 */ 
 
 // import dependencies
-var popUps = require("./pop-up.js");
+var PopUps = require("./pop-up.js");
+var popUps = new PopUps();
 
 function RoundsHandler(p1, p2, maxWins) {
     var _this = this;
@@ -193,42 +232,76 @@ function RoundsHandler(p1, p2, maxWins) {
     
     this.init = function() {
         //associate players with scores tables
-        scoresDisplayForP1.attr('data-player', p1);
-        scoresDisplayForP2.attr('data-player', p2);
+        scoresDisplayForP1.attr('data-player', p1.name);
+        scoresDisplayForP2.attr('data-player', p2.name);
         // add initial wins to players
-        wins[p1] = 0;
-        wins[p2] = 0;
+        wins[p1.name] = 0;
+        wins[p2.name] = 0;
     };
     
      // update the scores
     this.updateScoresTable = function(winner) {
-        wins[winner]++
-        var newWin = '<li class="player-win">' + wins[winner] + '</li>'
+        wins[winner.name]++
+        var newWin = '<li class="player-win">' + wins[winner.name] + '</li>'
         // show score in UI
-        $('.player-score[data-player="'+ winner +'"]').append(newWin);
-        _this.checkGameWinner();
+        $('.player-score[data-player="'+ winner.name +'"]').append(newWin);
+        _this.checkGameWinner(winner);
+    };
+    
+    // draw handler
+    this.drawHandler = function(){
+        popUps.showDraw();
     };
     
     // clear the scores
-    this.clearScoresTable = function(gameWinner) {
-        alert(gameWinner + ' is the winner!');
+    this.clearScoresTable = function() {
         $('.player-score').empty();
-        wins[p1] = 0;
-        wins[p2] = 0;
+        wins[p1.name] = 0;
+        wins[p2.name] = 0;
     };
     
     // check if any of the players has won the game
-    this.checkGameWinner = function() {
-        // if any of the players has 3 wins - end game
-        for (var player in wins) {
-            if (wins.hasOwnProperty(player)) {
-                if (wins[player] === 3) {
-                    _this.clearScoresTable(player);
-                }   
-            }
+    this.checkGameWinner = function(roundWinner) {
+        if (wins[roundWinner.name] === 3) {
+            popUps.showGameWinner(roundWinner.name);
+            _this.clearScoresTable();
+        } else {
+            popUps.showRoundWinner(roundWinner.name);
         }
-    }
+    };
 }
 
 module.exports = RoundsHandler;
-},{"./pop-up.js":3}]},{},[1]);
+},{"./pop-up.js":3}],5:[function(require,module,exports){
+function Token (p1, p2) {
+    var _this = this;
+    var tokens = {
+        'skull' : $('[data-token-choice="skull"]'),
+        'bones' : $('[data-token-choice="bones"]')
+    };
+   
+   // initialize tokens
+   this.init = function () {
+        $('.tokens').on('click', '.token-choice' ,function(){
+            _this.assignTokens(this);
+        }); 
+   };
+   
+   // assign tokens
+   this.assignTokens = function (playerChoice) {
+       // assign player token
+       p1.token = playerChoice.getAttribute('data-token-choice');
+       // assign computer toekn
+       for (var token in tokens) {
+           if (tokens.hasOwnProperty(token)) {
+               if (token !== p1.token) {
+                   p2.token = token;
+               } 
+           }
+       }
+       console.log(p1, p2);
+   };
+}
+
+module.exports = Token;
+},{}]},{},[1]);
