@@ -3,16 +3,20 @@ document.addEventListener('DOMContentLoaded', function(){
     var MainLoop = require("./main-loop.js");
     var popUp = require("./pop-up.js");
     var Token = require("./token.js");
-    
+    var SetPlayer = require("./player-name.js");
+
     /* vars */
     var p1 = {
-        name : 'Tomek',
+        name : '',
         token: ''
     };
     var p2 = {
         name : 'Komputer',
         token: ''
     };
+    
+    var player = new SetPlayer(p1);
+    player.init();
     
     var loop = new MainLoop(p1, p2);
     loop.init();
@@ -24,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function(){
     tokenControl.init();
     
 });
-},{"./main-loop.js":2,"./pop-up.js":3,"./token.js":5}],2:[function(require,module,exports){
+},{"./main-loop.js":2,"./player-name.js":3,"./pop-up.js":4,"./token.js":6}],2:[function(require,module,exports){
 var RoundsHandler = require("./rounds-handler.js");
 
 function MainLoop(p1,p2) {
@@ -128,7 +132,32 @@ function MainLoop(p1,p2) {
 
 // export the main loop
 module.exports = MainLoop;
-},{"./rounds-handler.js":4}],3:[function(require,module,exports){
+},{"./rounds-handler.js":5}],3:[function(require,module,exports){
+function SetPlayer (player) {
+    var _this = this;
+    
+    var playerName = document.getElementById('pName_input');
+    var submit = document.getElementById('story-cta');
+
+    this.init = function() {
+       
+        playerName.addEventListener('change', function(){
+            _this.submitBtnHandler();
+        });
+
+    };
+    
+    this.submitBtnHandler = function() { 
+       
+    };
+    
+    this.setPlayerName = function(){
+      
+    };
+}
+
+module.exports = SetPlayer;
+},{}],4:[function(require,module,exports){
 function PopUp () {
     //vars
     var _this = this;
@@ -206,7 +235,7 @@ function PopUp () {
 };
 
 module.exports = PopUp;
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 /*
 RoundsHandler checks if someone has won, and updates the scores table.
 Takes params:
@@ -272,7 +301,7 @@ function RoundsHandler(p1, p2, maxWins) {
 }
 
 module.exports = RoundsHandler;
-},{"./pop-up.js":3}],5:[function(require,module,exports){
+},{"./pop-up.js":4}],6:[function(require,module,exports){
 function Token (p1, p2) {
     var _this = this;
     var tokens = {

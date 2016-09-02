@@ -452,6 +452,8 @@ noscript {
 /* story and introduction */
 .story--pop-up {
     display: block;
+    height: 40rem;
+    margin-top: -20rem;
 }
 .story-images {
     display: -ms-flexbox;
@@ -470,6 +472,10 @@ noscript {
 }
 .story-text {
     font-size: 1.8em;
+    text-align: center;
+}
+.story-form {
+    margin-top: 2rem;
     text-align: center;
 }
 .story-btn {
