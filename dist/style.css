@@ -354,6 +354,9 @@ html, body {
     margin-left: auto;
     margin-right: auto
 }
+.red-color {
+    color: #601615
+}
 img, button, p {
     margin: 0;
     padding: 0
@@ -390,17 +393,17 @@ noscript {
 .content-wrapper {
     width: 100%;
     height: 100%;
-    background: url(/dist/assets/images/game-deck-bg.png) no-repeat;
-    background-size: cover
+    background: url(/dist/assets/images/barrel.png) no-repeat center right,
+                url(/dist/assets/images/game-deck-bg.png) no-repeat;
+    background-size: auto, cover
 }
 .game {
-    position: relative;
-    float: right;
+    position: relative;/*float: right;*/
+    margin-left: auto;
+    margin-right: auto;
     width: 100%;
     height: 100%;
-    max-width: 1238px;
-    background: url(/dist/assets/images/barrel.png) no-repeat;
-    background-position: center right;
+    max-width: 1000px;
     z-index: 2
 }
 .game-state-display {
@@ -452,8 +455,8 @@ noscript {
     position: absolute;
     top: 50%;
     left: 50%;
-    height: 30rem;
-    width: 60rem;
+    height: 35rem;
+    width: 60.2rem;
     margin-left: -30rem;
     margin-top: -15rem;
     padding: 3rem;
@@ -470,11 +473,7 @@ noscript {
     z-index: 100
 }
 /* story and introduction */
-.story--pop-up {
-    display: block;
-    height: 40rem;
-    margin-top: -20rem
-}
+.story--pop-up {}
 /*.story-images {
     display: flex;
     justify-content: space-around;
@@ -490,12 +489,35 @@ noscript {
     }
 }*/
 .story-text {
-    font-size: 1.8em;
+    font-size: 3em;
     text-align: center
 }
+.story-action-desc {
+    margin-top: 3.3rem;
+    font-size: 3em;
+    text-align: center
+}
+.player-name-inputs {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    -ms-flex-align: center;
+        align-items: center;
+    margin: 2.5rem 3rem 3rem 3rem
+}
+input[class="p-name-input"] {
+    width: 19.5rem;
+    font-size: 3em;
+    text-align: center;
+    background: transparent;
+    color: #393939;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid black
+}
 .story-btn {
-    float: right;
-    margin-top: 2rem
+    display: block
 }
 /* token choice */
 .token--pop-up {}
@@ -635,6 +657,34 @@ noscript {
 [data-taken="bones"]:hover {
     background: green;
     background: url(/dist/assets/images/token-bones.png) no-repeat center
+}
+.cta-btn {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center;
+    font-size: 3em;
+    outline: none;
+    border: none;
+    background: transparent
+}
+.cta-btn:hover, .cta-btn:active {
+    color: #601615
+}
+.cta-btn:hover>.btn-arrow, .cta-btn:active>.btn-arrow {
+    width: 35px;
+    height: 30px;
+    background-position: -2px -36px
+}
+.btn-arrow {
+    width: 34px;
+    height: 30px;
+    margin-left: 1rem;
+    background: url(/dist/assets/images/UI-arrow-sprites.png);
+    background-repeat: no-repeat;
+    background-position: -2px -2px
 }
 
 /* ----- Helper and Plugins ----- */

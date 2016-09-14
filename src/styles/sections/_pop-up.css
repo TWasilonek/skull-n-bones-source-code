@@ -3,8 +3,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    height: 30rem;
-    width: 60rem;
+    height: 35rem;
+    width: 60.2rem;
     margin-left: -30rem;
     margin-top: -15rem;
     padding: 3rem;
@@ -24,9 +24,6 @@
 
 /* story and introduction */
 .story--pop-up {
-    display: block;
-    height: 40rem;
-    margin-top: -20rem;
 }
 
 /*.story-images {
@@ -45,13 +42,34 @@
 }*/
 
 .story-text {
-    font-size: 1.8em;
+    font-size: 3em;
     text-align: center;
 }
 
+.story-action-desc {
+    margin-top: 3.3rem;
+    font-size: 3em;
+    text-align: center;
+}
+
+.player-name-inputs {
+    @mixin flex-center-sb;
+    margin: 2.5rem 3rem 3rem 3rem;
+}
+
+input[class="p-name-input"] {
+    width: 19.5rem;
+    font-size: 3em;
+    text-align: center;
+    background: transparent;
+    color: #393939;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid black;
+}
+
 .story-btn {
-    float: right;
-    margin-top: 2rem;
+    display: block;
 }
 
 /* token choice */

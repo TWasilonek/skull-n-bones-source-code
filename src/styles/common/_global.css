@@ -30,6 +30,10 @@ html, body {
   margin-right: auto;
 }
 
+.red-color {
+  color: $red;
+}
+
 img, button, p {
   margin: 0;
   padding: 0;

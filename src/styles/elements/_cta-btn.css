@@ -1,0 +1,26 @@
+.cta-btn {
+    @mixin flex-center;
+    font-size: 3em;
+    outline: none;
+    border: none;
+    background: transparent;
+    
+    &:hover, &:active {
+        color: $red;
+    }
+    
+    &:hover>.btn-arrow, &:active>.btn-arrow {
+        width: 35px;
+        height: 30px;
+        background-position: -2px -36px;
+    }
+}
+
+.btn-arrow {
+    width: 34px;
+    height: 30px;
+    margin-left: 1rem;
+    background: url(/dist/assets/images/UI-arrow-sprites.png);
+    background-repeat: no-repeat;
+    background-position: -2px -2px;
+}

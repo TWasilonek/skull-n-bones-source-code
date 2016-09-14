@@ -20,7 +20,7 @@
 @import common/animations;
 @import common/animation-classes;
 @import elements/token;
-@import elements/continue-btn;
+@import elements/cta-btn;
 
 /* ----- Helper and Plugins ----- */
 @import common/state-classes;
