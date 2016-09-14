@@ -9,6 +9,8 @@
     margin-top: -15rem;
     padding: 3rem;
     background: #eee;
+    background: url(/dist/assets/images/popup-paper-bg.png) no-repeat center;
+    z-index: 110;
 }
 
 .pop-up-background {
@@ -17,6 +19,7 @@
     width: 100%;
     height: 100%;
     background: rgba(0,0,0, .4);
+    z-index: 100;
 }
 
 /* story and introduction */
@@ -26,7 +29,7 @@
     margin-top: -20rem;
 }
 
-.story-images {
+/*.story-images {
     display: flex;
     justify-content: space-around;
     margin-bottom: 3rem;
@@ -39,15 +42,10 @@
         border-radius: 50%;
         overflow: hidden;
     }
-}
+}*/
 
 .story-text {
     font-size: 1.8em;
-    text-align: center;
-}
-
-.story-form {
-    margin-top: 2rem;
     text-align: center;
 }
 
@@ -58,6 +56,12 @@
 
 /* token choice */
 .token--pop-up {
+    
+}
+
+.token-choice {
+    width: 12rem;
+    height: 12.3rem;
 }
 
 /* round win */

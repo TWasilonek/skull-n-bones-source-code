@@ -1,7 +1,12 @@
 .game-state-display {
+    position: absolute;
     @mixin flex-center-sb;
-    width: 80%;
-    height: 10rem;
-    margin-bottom: 8rem;
-    border: 1px solid black;
+    top: 2rem;
+    left: 42%;
+    margin-left: -29.5rem;
+    width: 58.1rem;
+    height: 20.4rem;
+    background: #999;
+    background: url(/dist/assets/images/UI-game-state-bg.png) no-repeat;
+    z-index: 10;
 }

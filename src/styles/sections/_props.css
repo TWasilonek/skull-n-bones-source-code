@@ -1,0 +1,12 @@
+.game-props-knife {
+    position: absolute;
+    left: 10rem;
+    top: 13rem;
+    transform: rotate(8deg);
+}
+
+.game-props-coins {
+    position: absolute;
+    top: 32rem;
+    right: 23.5%;
+}

@@ -1,13 +1,17 @@
 [data-taken="skull"] {
     background: red;
+    background: url(/dist/assets/images/token-skull.png) no-repeat center;
     &:hover {
         background: red;
+        background: url(/dist/assets/images/token-skull.png) no-repeat center;
     }
 }
 
 [data-taken="bones"] {
     background: green;
+    background: url(/dist/assets/images/token-bones.png) no-repeat center;
     &:hover {
         background: green;
+        background: url(/dist/assets/images/token-bones.png) no-repeat center;
     }
 }

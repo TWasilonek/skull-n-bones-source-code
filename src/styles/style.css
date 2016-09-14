@@ -13,12 +13,14 @@
 @import sections/game-state;
 @import sections/game-board;
 @import sections/pop-up;
+@import sections/props;
 
 /* ----- ELements ----- */
 @import elements/logo;
 @import common/animations;
 @import common/animation-classes;
 @import elements/token;
+@import elements/continue-btn;
 
 /* ----- Helper and Plugins ----- */
 @import common/state-classes;

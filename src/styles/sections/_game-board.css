@@ -1,21 +1,30 @@
 .game-board {
+    position: absolute;
     display: flex;
     flex-wrap: wrap;
-    width: 45rem;
-    height: 45rem;
-    background: url(./assets/images/pixel_grid.jpg) no-repeat;
+    top: 35%;
+    left: 23%;
+    /*margin-left: -23.7rem;*/
+    width: 47.4rem;
+    height: 47.4rem;
+    padding: 1rem 2rem 2rem 1rem;
+    background: url(/dist/assets/images/pixel_grid.jpg) no-repeat;
+    background: url(/dist/assets/images/game-board.png) no-repeat;
     overflow: hidden;
+    z-index: 10;
 }
 
 .field {
-    width: 15rem;
-    height: 15rem;
+    width: 14rem;
+    height: 14rem;
+    margin-left: .5rem;
+    margin-top: .5rem;
     color: white;
-    background: rgba(0,0,0, .5);
-    border: 1px solid rgba(255,255,255, .7);
+    /*background: rgba(0,0,0, .5);*/
+    /*border: 1px solid rgba(255,255,255, .7);*/
     
     &:hover {
-        background: rgba(0,0,0, .8);
+        background: rgba(0,0,0, .3);
         cursor: pointer;
     }
 }
