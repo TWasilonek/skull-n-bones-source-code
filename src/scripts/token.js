@@ -9,6 +9,7 @@ function Token (p1, p2) {
    this.init = function () {
         $('.tokens').on('click', '.token-choice' ,function(){
             _this.assignTokens(this);
+            _this.playerOneChoseToken($(this));
         }); 
    };
    
@@ -24,7 +25,22 @@ function Token (p1, p2) {
                } 
            }
        }
+       //set player one choice
+       playerChoice.setAttribute('data-token-p1-choice', 'true');
        console.log(p1, p2);
+   };
+   
+   // show that player one chose the token
+   this.playerOneChoseToken = function($p1_token){
+       $('.token-choice:not([data-token-p1-choice="true"])').fadeOut();
+       $p1_token.css({
+          'width' : $p1_token.width(),
+          'height' :  $p1_token.height()
+       });
+       $p1_token.animate({
+          'left' : '50%',
+          'margin-left': '-40px'
+       });
    };
 }
 

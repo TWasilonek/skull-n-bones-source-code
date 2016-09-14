@@ -66,10 +66,17 @@ input[class="p-name-input"] {
     outline: none;
     border: none;
     border-bottom: 2px solid black;
-}
-
-.story-btn {
-    display: block;
+    
+    &:focus::-webkit-input-placeholder {
+        opacity: 0;
+    }
+    &:focus:-moz-placeholder {
+        opacity: 0;
+    }
+    /* firefox 19+ */
+    &:focus::-moz-placeholder {
+        opacity: 0;
+    }
 }
 
 /* token choice */
@@ -77,9 +84,56 @@ input[class="p-name-input"] {
     
 }
 
+.token-text {
+    font-size: 3em;
+    max-width: 39rem;
+}
+
+.tokens {
+    position: relative;
+   /* @mixin flex-center-sb;*/
+    width: 24em;
+    height: 8rem;
+    margin: 2.2rem auto; 
+}
+
 .token-choice {
-    width: 12rem;
-    height: 12.3rem;
+    position: absolute;
+}
+
+.token-choice[data-token-choice="skull"] {
+    width: 7.4rem;
+    left: 0;
+    
+    &:focus, &:hover, &:active {
+        width: 8.3rem;
+    }
+}
+
+.token-choice[data-token-choice="bones"] {
+    width: 7.1rem;
+    right: 0;
+    
+    &:focus, &:hover, &:active {
+        width: 8rem;
+    }
+}
+
+/* round draw */
+.round-draw--pop-up {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+    
+    .pop-up-winner-text {
+        font-size: 4em;
+        margin-bottom: 4.5rem;
+    }
+    
+    .draw-btn {
+        margin-bottom: 4.5rem;
+    }
 }
 
 /* round win */

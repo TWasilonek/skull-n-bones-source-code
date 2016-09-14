@@ -7,13 +7,13 @@
 html {
     font-family: sans-serif;/* 1 */
     -ms-text-size-adjust: 100%;/* 2 */
-    -webkit-text-size-adjust: 100%/* 2 */
+    -webkit-text-size-adjust: 100%;/* 2 */
 }
 /**
  * Remove the margin in all browsers (opinionated).
  */
 body {
-    margin: 0
+    margin: 0;
 }
 /* HTML5 display definitions
    ========================================================================== */
@@ -23,33 +23,33 @@ body {
  * 2. Add the correct display in IE.
  */
 article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {/* 1 */
-    display: block
+    display: block;
 }
 /**
  * Add the correct display in IE 9-.
  */
 audio, canvas, progress, video {
-    display: inline-block
+    display: inline-block;
 }
 /**
  * Add the correct display in iOS 4-7.
  */
 audio:not([controls]) {
     display: none;
-    height: 0
+    height: 0;
 }
 /**
  * Add the correct vertical alignment in Chrome, Firefox, and Opera.
  */
 progress {
-    vertical-align: baseline
+    vertical-align: baseline;
 }
 /**
  * Add the correct display in IE 10-.
  * 1. Add the correct display in IE.
  */
 template, [hidden] {
-    display: none
+    display: none;
 }
 /* Links
    ========================================================================== */
@@ -59,14 +59,14 @@ template, [hidden] {
  */
 a {
     background-color: transparent;/* 1 */
-    -webkit-text-decoration-skip: objects/* 2 */
+    -webkit-text-decoration-skip: objects;/* 2 */
 }
 /**
  * Remove the outline on focused links when they are also active or hovered
  * in all browsers (opinionated).
  */
 a:active, a:hover {
-    outline-width: 0
+    outline-width: 0;
 }
 /* Text-level semantics
    ========================================================================== */
@@ -77,25 +77,25 @@ a:active, a:hover {
 abbr[title] {
     border-bottom: none;/* 1 */
     text-decoration: underline;/* 2 */
-    text-decoration: underline dotted/* 2 */
+    text-decoration: underline dotted;/* 2 */
 }
 /**
  * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
  */
 b, strong {
-    font-weight: inherit
+    font-weight: inherit;
 }
 /**
  * Add the correct font weight in Chrome, Edge, and Safari.
  */
 b, strong {
-    font-weight: bolder
+    font-weight: bolder;
 }
 /**
  * Add the correct font style in Android 4.3-.
  */
 dfn {
-    font-style: italic
+    font-style: italic;
 }
 /**
  * Correct the font size and margin on `h1` elements within `section` and
@@ -103,20 +103,20 @@ dfn {
  */
 h1 {
     font-size: 2em;
-    margin: 0.67em 0
+    margin: 0.67em 0;
 }
 /**
  * Add the correct background and color in IE 9-.
  */
 mark {
     background-color: #ff0;
-    color: #000
+    color: #000;
 }
 /**
  * Add the correct font size in all browsers.
  */
 small {
-    font-size: 80%
+    font-size: 80%;
 }
 /**
  * Prevent `sub` and `sup` elements from affecting the line height in
@@ -126,13 +126,13 @@ sub, sup {
     font-size: 75%;
     line-height: 0;
     position: relative;
-    vertical-align: baseline
+    vertical-align: baseline;
 }
 sub {
-    bottom: -0.25em
+    bottom: -0.25em;
 }
 sup {
-    top: -0.5em
+    top: -0.5em;
 }
 /* Embedded content
    ========================================================================== */
@@ -140,13 +140,13 @@ sup {
  * Remove the border on images inside links in IE 10-.
  */
 img {
-    border-style: none
+    border-style: none;
 }
 /**
  * Hide the overflow in IE.
  */
 svg:not(:root) {
-    overflow: hidden
+    overflow: hidden;
 }
 /* Grouping content
    ========================================================================== */
@@ -156,13 +156,13 @@ svg:not(:root) {
  */
 code, kbd, pre, samp {
     font-family: monospace, monospace;/* 1 */
-    font-size: 1em/* 2 */
+    font-size: 1em;/* 2 */
 }
 /**
  * Add the correct margin in IE 8.
  */
 figure {
-    margin: 1em 40px
+    margin: 1em 40px;
 }
 /**
  * 1. Add the correct box sizing in Firefox.
@@ -171,7 +171,7 @@ figure {
 hr {
     box-sizing: content-box;/* 1 */
     height: 0;/* 1 */
-    overflow: visible/* 2 */
+    overflow: visible;/* 2 */
 }
 /* Forms
    ========================================================================== */
@@ -181,27 +181,27 @@ hr {
  */
 button, input, select, textarea {
     font: inherit;/* 1 */
-    margin: 0/* 2 */
+    margin: 0;/* 2 */
 }
 /**
  * Restore the font weight unset by the previous rule.
  */
 optgroup {
-    font-weight: bold
+    font-weight: bold;
 }
 /**
  * Show the overflow in IE.
  * 1. Show the overflow in Edge.
  */
 button, input {/* 1 */
-    overflow: visible
+    overflow: visible;
 }
 /**
  * Remove the inheritance of text transform in Edge, Firefox, and IE.
  * 1. Remove the inheritance of text transform in Firefox.
  */
 button, select {/* 1 */
-    text-transform: none
+    text-transform: none;
 }
 /**
  * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
@@ -209,20 +209,20 @@ button, select {/* 1 */
  * 2. Correct the inability to style clickable types in iOS and Safari.
  */
 button, html [type="button"], [type="reset"], [type="submit"] {
-    -webkit-appearance: button/* 2 */
+    -webkit-appearance: button;/* 2 */
 }
 /**
  * Remove the inner border and padding in Firefox.
  */
 button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner {
     border-style: none;
-    padding: 0
+    padding: 0;
 }
 /**
  * Restore the focus styles unset by the previous rule.
  */
 button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focusring, [type="submit"]:-moz-focusring {
-    outline: 1px dotted ButtonText
+    outline: 1px dotted ButtonText;
 }
 /**
  * Change the border, margin, and padding in all browsers (opinionated).
@@ -230,7 +230,7 @@ button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focus
 fieldset {
     border: 1px solid #c0c0c0;
     margin: 0 2px;
-    padding: 0.35em 0.625em 0.75em
+    padding: 0.35em 0.625em 0.75em;
 }
 /**
  * 1. Correct the text wrapping in Edge and IE.
@@ -244,13 +244,13 @@ legend {
     display: table;/* 1 */
     max-width: 100%;/* 1 */
     padding: 0;/* 3 */
-    white-space: normal/* 1 */
+    white-space: normal;/* 1 */
 }
 /**
  * Remove the default vertical scrollbar in IE.
  */
 textarea {
-    overflow: auto
+    overflow: auto;
 }
 /**
  * 1. Add the correct box sizing in IE 10-.
@@ -258,13 +258,13 @@ textarea {
  */
 [type="checkbox"], [type="radio"] {
     box-sizing: border-box;/* 1 */
-    padding: 0/* 2 */
+    padding: 0;/* 2 */
 }
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
 [type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button {
-    height: auto
+    height: auto;
 }
 /**
  * 1. Correct the odd appearance in Chrome and Safari.
@@ -272,20 +272,20 @@ textarea {
  */
 [type="search"] {
     -webkit-appearance: textfield;/* 1 */
-    outline-offset: -2px/* 2 */
+    outline-offset: -2px;/* 2 */
 }
 /**
  * Remove the inner padding and cancel buttons in Chrome and Safari on OS X.
  */
 [type="search"]::-webkit-search-cancel-button, [type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none
+    -webkit-appearance: none;
 }
 /**
  * Correct the text style of placeholders in Chrome, Edge, and Safari.
  */
 ::-webkit-input-placeholder {
     color: inherit;
-    opacity: 0.54
+    opacity: 0.54;
 }
 /**
  * 1. Correct the inability to style clickable types in iOS and Safari.
@@ -293,7 +293,7 @@ textarea {
  */
 ::-webkit-file-upload-button {
     -webkit-appearance: button;/* 1 */
-    font: inherit/* 2 */
+    font: inherit;/* 2 */
 }
 
 /* ----- Global ----- */
@@ -308,7 +308,7 @@ textarea {
          url('./assets/fonts/montserrat/montserrat-bold-webfont.woff2') format('woff2'),
          url('./assets/fonts/montserrat/montserrat-bold-webfont.woff') format('woff'),
          url('./assets/fonts/montserrat/montserrat-bold-webfont.ttf') format('truetype');
-    font-style: normal
+    font-style: normal;
 }
 @font-face {
     font-family: 'montserrat-light';
@@ -318,7 +318,7 @@ textarea {
          url('./assets/fonts/montserrat/montserrat-light-webfont.woff2') format('woff2'),
          url('./assets/fonts/montserrat/montserrat-light-webfont.woff') format('woff'),
          url('./assets/fonts/montserrat/montserrat-light-webfont.ttf') format('truetype');
-    font-style: normal
+    font-style: normal;
 }
 @font-face {
     font-family: 'montserrat-regular';
@@ -328,51 +328,51 @@ textarea {
          url('./assets/fonts/montserrat/montserrat-regular-webfont.woff2') format('woff2'),
          url('./assets/fonts/montserrat/montserrat-regular-webfont.woff') format('woff'),   
          url('./assets/fonts/montserrat/montserrat-regular-webfont.otf') format('truetype');
-    font-style: normal
+    font-style: normal;
 }
 /* Global styles */
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 html, body {
     font-family: 'Pirata One', cursive;
     font-size: 10px;
     width: 100%;
-    height: 100%
+    height: 100%;
 }
 .content-wrapper {
     padding-left: 0;
-    padding-right: 0
+    padding-right: 0;
 }
 .no-border {
-    border: none
+    border: none;
 }
 .is-uppercase {
-    text-transform: uppercase
+    text-transform: uppercase;
 }
 .center-block {
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
 }
 .red-color {
-    color: #601615
+    color: #601615;
 }
 img, button, p {
     margin: 0;
-    padding: 0
+    padding: 0;
 }
 img, video {
     max-width: 100%;
     height: auto;
-    width: 100%
+    width: 100%;
 }
 /* Headers */
 h2, h3, h4, h5, h6 {
     margin: 0;
-    padding: 0
+    padding: 0;
 }
 h2 {
-    font-size: 3em
+    font-size: 3em;
 }
 /* text styles */
 strong {}
@@ -386,25 +386,26 @@ noscript {
     background: #ffcccc;
     border: 1px solid #a00707;
     border-radius: 5px;
-    z-index: 9999
+    z-index: 9999;
 }
 
 /* ----- Sections ----- */
 .content-wrapper {
     width: 100%;
-    height: 100%;
-    background: url(/dist/assets/images/barrel.png) no-repeat center right,
+    height: 100%;/*background: url(/dist/assets/images/barrel.png) no-repeat center right,
                 url(/dist/assets/images/game-deck-bg.png) no-repeat;
-    background-size: auto, cover
+    background-size: 1238px 900px, cover;
+    background-attachment: fixed;*/
+    background: url(/dist/assets/images/scene-background.png) no-repeat center;
+    background-size: cover;
 }
 .game {
-    position: relative;/*float: right;*/
+    position: relative;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
-    height: 100%;
-    max-width: 1000px;
-    z-index: 2
+    width: 100rem;
+    height: 68rem;
+    z-index: 2;
 }
 .game-state-display {
     position: absolute;
@@ -415,13 +416,13 @@ noscript {
     -ms-flex-align: center;
         align-items: center;
     top: 2rem;
-    left: 42%;
+    left: 50%;
     margin-left: -29.5rem;
     width: 58.1rem;
     height: 20.4rem;
     background: #999;
     background: url(/dist/assets/images/UI-game-state-bg.png) no-repeat;
-    z-index: 10
+    z-index: 10;
 }
 .game-board {
     position: absolute;
@@ -430,25 +431,26 @@ noscript {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     top: 35%;
-    left: 23%;/*margin-left: -23.7rem;*/
+    left: 50%;
+    margin-left: -23.7rem;
     width: 47.4rem;
     height: 47.4rem;
     padding: 1rem 2rem 2rem 1rem;
     background: url(/dist/assets/images/pixel_grid.jpg) no-repeat;
     background: url(/dist/assets/images/game-board.png) no-repeat;
     overflow: hidden;
-    z-index: 10
+    z-index: 10;
 }
 .field {
     width: 14rem;
     height: 14rem;
     margin-left: .5rem;
     margin-top: .5rem;
-    color: white/*background: rgba(0,0,0, .5);*//*border: 1px solid rgba(255,255,255, .7);*/
+    color: white;/*background: rgba(0,0,0, .5);*//*border: 1px solid rgba(255,255,255, .7);*/
 }
 .field:hover {
     background: rgba(0,0,0, .3);
-    cursor: pointer
+    cursor: pointer;
 }
 .pop-up {
     display: none;
@@ -462,7 +464,7 @@ noscript {
     padding: 3rem;
     background: #eee;
     background: url(/dist/assets/images/popup-paper-bg.png) no-repeat center;
-    z-index: 110
+    z-index: 110;
 }
 .pop-up-background {
     position: absolute;
@@ -470,7 +472,7 @@ noscript {
     width: 100%;
     height: 100%;
     background: rgba(0,0,0, .4);
-    z-index: 100
+    z-index: 100;
 }
 /* story and introduction */
 .story--pop-up {}
@@ -490,12 +492,12 @@ noscript {
 }*/
 .story-text {
     font-size: 3em;
-    text-align: center
+    text-align: center;
 }
 .story-action-desc {
     margin-top: 3.3rem;
     font-size: 3em;
-    text-align: center
+    text-align: center;
 }
 .player-name-inputs {
     display: -ms-flexbox;
@@ -504,7 +506,7 @@ noscript {
         justify-content: space-between;
     -ms-flex-align: center;
         align-items: center;
-    margin: 2.5rem 3rem 3rem 3rem
+    margin: 2.5rem 3rem 3rem 3rem;
 }
 input[class="p-name-input"] {
     width: 19.5rem;
@@ -514,16 +516,63 @@ input[class="p-name-input"] {
     color: #393939;
     outline: none;
     border: none;
-    border-bottom: 2px solid black
+    border-bottom: 2px solid black;/* firefox 19+ */
 }
-.story-btn {
-    display: block
+input[class="p-name-input"]:focus::-webkit-input-placeholder {
+    opacity: 0;
+}
+input[class="p-name-input"]:focus:-moz-placeholder {
+    opacity: 0;
+}
+input[class="p-name-input"]:focus::-moz-placeholder {
+    opacity: 0;
 }
 /* token choice */
 .token--pop-up {}
+.token-text {
+    font-size: 3em;
+    max-width: 39rem;
+}
+.tokens {
+    position: relative;/* @mixin flex-center-sb;*/
+    width: 24em;
+    height: 8rem;
+    margin: 2.2rem auto;
+}
 .token-choice {
-    width: 12rem;
-    height: 12.3rem
+    position: absolute;
+}
+.token-choice[data-token-choice="skull"] {
+    width: 7.4rem;
+    left: 0;
+}
+.token-choice[data-token-choice="skull"]:focus, .token-choice[data-token-choice="skull"]:hover, .token-choice[data-token-choice="skull"]:active {
+    width: 8.3rem;
+}
+.token-choice[data-token-choice="bones"] {
+    width: 7.1rem;
+    right: 0;
+}
+.token-choice[data-token-choice="bones"]:focus, .token-choice[data-token-choice="bones"]:hover, .token-choice[data-token-choice="bones"]:active {
+    width: 8rem;
+}
+/* round draw */
+.round-draw--pop-up {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: end;
+        justify-content: flex-end;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-align: center;
+        align-items: center;
+}
+.round-draw--pop-up .pop-up-winner-text {
+    font-size: 4em;
+    margin-bottom: 4.5rem;
+}
+.round-draw--pop-up .draw-btn {
+    margin-bottom: 4.5rem;
 }
 /* round win */
 .round-win--pop-up {}
@@ -534,12 +583,12 @@ input[class="p-name-input"] {
     left: 10rem;
     top: 13rem;
     -ms-transform: rotate(8deg);
-        transform: rotate(8deg)
+        transform: rotate(8deg);
 }
 .game-props-coins {
     position: absolute;
     top: 32rem;
-    right: 23.5%
+    right: 7.5rem;
 }
 
 /* ----- ELements ----- */
@@ -549,47 +598,47 @@ input[class="p-name-input"] {
     left: 50%;
     margin-left: -11.7rem;
     width: 23.4rem;
-    z-index: 10
+    z-index: 10;
 }
 @keyframes header-arrow-animation {
     0% {
-        top: 0
+        top: 0;
     }
     100% {
-        top: 1.5rem
+        top: 1.5rem;
     }
 }
 @keyframes header-image-animation {
     0% {
         transform: scale(1);
-        animation-timing-function: ease-out
+        animation-timing-function: ease-out;
     }
     40% {
-        transform: scale(1.1)
+        transform: scale(1.1);
     }/*50% {
     transform: scale(1.17);
   }*/
     100% {
-        transform: scale(1.2)
+        transform: scale(1.2);
     }
 }
 @keyframes logo-animation {
     0% {
-        transform: scale(0)
+        transform: scale(0);
     }
     100% {
-        transform: scale(1)
+        transform: scale(1);
     }
 }
 @media only screen and (max-width:1100px) {
     @keyframes header-content-animation {
         0% {
             opacity: 0;
-            top: 48rem
+            top: 48rem;
         }
         100% {
             opacity: 1;
-            top: 40rem
+            top: 40rem;
         }
     }
 }
@@ -597,11 +646,11 @@ input[class="p-name-input"] {
     @keyframes header-content-animation {
         0% {
             opacity: 0;
-            top: 48rem
+            top: 48rem;
         }
         100% {
             opacity: 1;
-            top: 40rem
+            top: 40rem;
         }
     }
 }
@@ -609,11 +658,11 @@ input[class="p-name-input"] {
     @keyframes header-content-animation {
         0% {
             opacity: 0;
-            top: 58rem
+            top: 58rem;
         }
         100% {
             opacity: 1;
-            top: 50rem
+            top: 50rem;
         }
     }
 }
@@ -623,14 +672,14 @@ input[class="p-name-input"] {
     animation-duration: 90s;
     animation-timing-function: linear;
     animation-delay: 0;
-    animation-iteration-count: infinite
+    animation-iteration-count: infinite;
 }
 .animate-logo {
     animation: logo-animation;
     animation-duration: .8s;
     animation-timing-function: ease-out;
     animation-delay: 0s;
-    animation-fill-mode: forwards
+    animation-fill-mode: forwards;
 }
 .animate-header-content {
     position: absolute;
@@ -640,23 +689,23 @@ input[class="p-name-input"] {
     animation-timing-function: ease-out;
     animation-duration: .7s;
     animation-delay: .8s;
-    animation-fill-mode: forwards
+    animation-fill-mode: forwards;
 }
 [data-taken="skull"] {
     background: red;
-    background: url(/dist/assets/images/token-skull.png) no-repeat center
+    background: url(/dist/assets/images/token-skull.png) no-repeat center;
 }
 [data-taken="skull"]:hover {
     background: red;
-    background: url(/dist/assets/images/token-skull.png) no-repeat center
+    background: url(/dist/assets/images/token-skull.png) no-repeat center;
 }
 [data-taken="bones"] {
     background: green;
-    background: url(/dist/assets/images/token-bones.png) no-repeat center
+    background: url(/dist/assets/images/token-bones.png) no-repeat center;
 }
 [data-taken="bones"]:hover {
     background: green;
-    background: url(/dist/assets/images/token-bones.png) no-repeat center
+    background: url(/dist/assets/images/token-bones.png) no-repeat center;
 }
 .cta-btn {
     display: -ms-flexbox;
@@ -668,15 +717,15 @@ input[class="p-name-input"] {
     font-size: 3em;
     outline: none;
     border: none;
-    background: transparent
+    background: transparent;
 }
 .cta-btn:hover, .cta-btn:active {
-    color: #601615
+    color: #601615;
 }
 .cta-btn:hover>.btn-arrow, .cta-btn:active>.btn-arrow {
     width: 35px;
     height: 30px;
-    background-position: -2px -36px
+    background-position: -2px -36px;
 }
 .btn-arrow {
     width: 34px;
@@ -684,23 +733,23 @@ input[class="p-name-input"] {
     margin-left: 1rem;
     background: url(/dist/assets/images/UI-arrow-sprites.png);
     background-repeat: no-repeat;
-    background-position: -2px -2px
+    background-position: -2px -2px;
 }
 
 /* ----- Helper and Plugins ----- */
 .is-hidden {
-    display: none
+    display: none;
 }
 .is-block {
-    display: block
+    display: block;
 }
 .is-flex {
     display: -ms-flexbox;
-    display: flex
+    display: flex;
 }
 .is-flex-inline {
     display: -ms-inline-flexbox;
-    display: inline-flex
+    display: inline-flex;
 }
 /*[data-taken="p1"] {
   background: red;
@@ -725,12 +774,12 @@ input[class="p-name-input"] {
 /* ----- ELements ----- */
 @media screen and (max-width: 1100px) {
     .logo {
-        top: 7rem
+        top: 7rem;
     }
 }
 @media screen and (max-width: 970px) {
     .logo {
-        top: 12rem
+        top: 12rem;
     }
 }
 @media screen and (max-width: 767px) {
@@ -739,6 +788,6 @@ input[class="p-name-input"] {
         margin-left: auto;
         top: 6rem;
         left: auto;
-        width: 17.5rem
+        width: 17.5rem;
     }
 }
