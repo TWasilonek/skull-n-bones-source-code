@@ -78,13 +78,23 @@
       <!-- main-nav end -->
       
       <section class="game-state-display center-block">
-        <div class="player player-1" data-player-name="player-one-name">Player 1</div>
+        <div class="player player-1" data-player-name="player-one-name">
+          <span class="player-UI-name" data-player-token="skull">Player 1</span>
+          <img src="/dist/assets/images/player-image-skull.png" alt="" class="player-token-image" data-player-token="skull">
+        </div>
         <div class="score">
           <!--<span class="score-title">Score</span>-->
-          <ol class="player-score score-player-1"></ol>
-          <ol class="player-score score-player-2"></ol>
+          <ol class="player-score score-player-1" data-player-token="skull">
+            <li><span class="score-img"></span></li>
+          </ol>
+          <ol class="player-score score-player-2" data-player-token="bones">
+            <li><span class="score-img"></span></li>
+          </ol>
         </div>
-        <div class="player player-2" data-player-name="player-two-name">Player 2</div>
+        <div class="player player-2" data-player-name="player-two-name">
+          <span class="player-UI-name" data-player-token="bones">Player 2</span>
+          <img src="/dist/assets/images/player-image-bones.png" alt="" class="player-token-image" data-player-token="bones">
+        </div>
       </section>
       <!-- game-state-display end -->
       
