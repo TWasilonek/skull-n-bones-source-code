@@ -5,7 +5,7 @@
     top: 2rem;
     left: 50%;
     margin-left: -29.5rem;
-    padding: 3rem 5.4rem 0 5.4rem;
+    padding: 3rem 4rem 0 4rem;
     width: 58.1rem;
     height: 20.4rem;
     background: #999;
@@ -13,10 +13,24 @@
     z-index: 10;
     
     .player {
-        font-size: 3em;
+        font-size: 2.2em;
         display: flex;
         flex-flow: column nowrap;
+        max-width: 10rem;
     }
+    .player-1 {
+        align-items: flex-start;
+    }
+    .player-2 {
+        align-items: flex-end;
+    }
+}
+
+.score {
+    display: flex;
+    justify-content: space-between;
+    width: 23rem;
+    margin-top: 4.5rem;
 }
 
 .player-token-image {
@@ -43,11 +57,20 @@
 
 .player-score {
     list-style: none;
+    padding: 0;
+    
+    li {
+        align-items: center;
+        height: 28px;
+    }
+    
+    .score-img {
+        display: inline-block;
+    }
     
     &[data-player-token="bones"] {
         .score-img {
-            display: block;
-            width: 24px;
+            width: 33px;
             height: 17px;
             background: url(/dist/assets/images/UI_bones-mark.png) no-repeat;
         }
@@ -55,11 +78,24 @@
     
     &[data-player-token="skull"] {
         .score-img {
-            display: block;
             width: 30px;
             height: 28px;
             background: url(/dist/assets/images/UI_skull-mark.png) no-repeat;
         }
+    }
+}
+
+.score-player-1 {
+    li {
+        display: flex;
+        justify-content: flex-start;
+    }
+}
+
+.score-player-2 {
+    li {
+        display: flex;
+        justify-content: flex-end;
     }
 }
 

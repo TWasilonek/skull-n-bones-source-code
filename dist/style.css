@@ -416,7 +416,7 @@ noscript {
     top: 2rem;
     left: 50%;
     margin-left: -29.5rem;
-    padding: 3rem 5.4rem 0 5.4rem;
+    padding: 3rem 4rem 0 4rem;
     width: 58.1rem;
     height: 20.4rem;
     background: #999;
@@ -424,11 +424,30 @@ noscript {
     z-index: 10;
 }
 .game-state-display .player {
-    font-size: 3em;
+    font-size: 2.2em;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-flow: column nowrap;
         flex-flow: column nowrap;
+    max-width: 10rem;
+}
+.game-state-display .player-1 {
+    -ms-flex-align: start;
+        -ms-grid-row-align: flex-start;
+        align-items: flex-start;
+}
+.game-state-display .player-2 {
+    -ms-flex-align: end;
+        -ms-grid-row-align: flex-end;
+        align-items: flex-end;
+}
+.score {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    width: 23rem;
+    margin-top: 4.5rem;
 }
 .player-token-image {
     max-width: none;
@@ -448,18 +467,38 @@ noscript {
 }
 .player-score {
     list-style: none;
+    padding: 0;
+}
+.player-score li {
+    -ms-flex-align: center;
+        -ms-grid-row-align: center;
+        align-items: center;
+    height: 28px;
+}
+.player-score .score-img {
+    display: inline-block;
 }
 .player-score[data-player-token="bones"] .score-img {
-    display: block;
-    width: 24px;
+    width: 33px;
     height: 17px;
     background: url(/dist/assets/images/UI_bones-mark.png) no-repeat;
 }
 .player-score[data-player-token="skull"] .score-img {
-    display: block;
     width: 30px;
     height: 28px;
     background: url(/dist/assets/images/UI_skull-mark.png) no-repeat;
+}
+.score-player-1 li {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: start;
+        justify-content: flex-start;
+}
+.score-player-2 li {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: end;
+        justify-content: flex-end;
 }
 .game-board {
     position: absolute;
@@ -513,20 +552,6 @@ noscript {
 }
 /* story and introduction */
 .story--pop-up {}
-/*.story-images {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 3rem;
-    
-    img {
-        display: block;
-        width: 150px;
-        height: 150px;
-        border: 2px solid black;
-        border-radius: 50%;
-        overflow: hidden;
-    }
-}*/
 .story-text {
     font-size: 3em;
     text-align: center;
@@ -547,7 +572,7 @@ noscript {
 }
 input[class="p-name-input"] {
     width: 19.5rem;
-    font-size: 3em;
+    font-size: 2.4em;
     text-align: center;
     background: transparent;
     color: #393939;
@@ -568,11 +593,12 @@ input[class="p-name-input"]:focus::-moz-placeholder {
 .token--pop-up {}
 .token-text {
     font-size: 3em;
-    max-width: 39rem;
+    max-width: 80rem;
+    text-align: center;
 }
 .tokens {
     position: relative;/* @mixin flex-center-sb;*/
-    width: 24em;
+    width: 24rem;
     height: 8rem;
     margin: 2.2rem auto;
 }
@@ -593,6 +619,10 @@ input[class="p-name-input"]:focus::-moz-placeholder {
 .token-choice[data-token-choice="bones"]:focus, .token-choice[data-token-choice="bones"]:hover, .token-choice[data-token-choice="bones"]:active {
     width: 8rem;
 }
+.pop-up-winner-text {
+    font-size: 4em;
+    margin-bottom: 4.5rem;
+}
 /* round draw */
 .round-draw--pop-up {
     display: -ms-flexbox;
@@ -604,17 +634,45 @@ input[class="p-name-input"]:focus::-moz-placeholder {
     -ms-flex-align: center;
         align-items: center;
 }
-.round-draw--pop-up .pop-up-winner-text {
-    font-size: 4em;
-    margin-bottom: 4.5rem;
-}
 .round-draw--pop-up .draw-btn {
     margin-bottom: 4.5rem;
 }
 /* round win */
-.round-win--pop-up {}
+.round-win--pop-up {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: end;
+        justify-content: flex-end;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-align: center;
+        align-items: center;
+}
+.round-win--pop-up .round-btn {
+    margin-bottom: 4.5rem;
+}
 /* game win */
-.game-win--pop-up {}
+.game-win--pop-up {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-align: center;
+        align-items: center;
+}
+.game-win--pop-up .game-winner-text {
+    margin-bottom: 0;
+    text-align: center;
+}
+.game-win--pop-up .game-winner {
+    font-size: 5em;
+    margin-bottom: 1rem;
+}
+.game-win--pop-up .game-btn {
+    margin-bottom: 4.5rem;
+}
 .game-props-knife {
     position: absolute;
     left: 10rem;
@@ -770,6 +828,18 @@ input[class="p-name-input"]:focus::-moz-placeholder {
     margin-left: 1rem;
     background: url(/dist/assets/images/UI-arrow-sprites.png);
     background-repeat: no-repeat;
+    background-position: -2px -2px;
+}
+.cta-btn[disabled] {
+    color: #000;
+    opacity: .5;
+}
+.cta-btn[disabled]:hover, .cta-btn[disabled]:active, .cta-btn[disabled]:focus {
+    color: #000;
+}
+.cta-btn[disabled]:hover>.btn-arrow, .cta-btn[disabled]:active>.btn-arrow {
+    width: 34px;
+    height: 30px;
     background-position: -2px -2px;
 }
 

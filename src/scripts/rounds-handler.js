@@ -13,30 +13,26 @@ var popUps = new PopUps();
 function RoundsHandler(p1, p2, maxWins) {
     var _this = this;
     var maxWins = maxWins || 3;
+    var winImage = '<span class="score-img"></span>';
     
     // wins counter
-    var wins = {}
-    
-    // displays
-    var scoresDisplayForP1 = $('.score-player-1');
-    var scoresDisplayForP2 = $('.score-player-2');
+    this.wins = {}
     
     this.init = function() {
-        //associate players with scores tables
-        scoresDisplayForP1.attr('data-player', p1.name);
-        scoresDisplayForP2.attr('data-player', p2.name);
         // add initial wins to players
-        wins[p1.name] = 0;
-        wins[p2.name] = 0;
+        _this.wins[p1.name] = 0;
+        _this.wins[p2.name] = 0;
     };
     
      // update the scores
     this.updateScoresTable = function(winner) {
-        wins[winner.name]++
-        var newWin = '<li class="player-win">' + wins[winner.name] + '</li>'
+        _this.wins[winner.name]++;
+        var newWin = '<li class="player-win">' + winImage.repeat(_this.wins[winner.name]) + '</li>';
         // show score in UI
         $('.player-score[data-player="'+ winner.name +'"]').append(newWin);
-        _this.checkGameWinner(winner);
+        setTimeout(function(){
+            _this.checkGameWinner(winner);
+        },500);
     };
     
     // draw handler
@@ -47,19 +43,19 @@ function RoundsHandler(p1, p2, maxWins) {
     // clear the scores
     this.clearScoresTable = function() {
         $('.player-score').empty();
-        wins[p1.name] = 0;
-        wins[p2.name] = 0;
+        _this.wins[p1.name] = 0;
+        _this.wins[p2.name] = 0;
     };
     
     // check if any of the players has won the game
     this.checkGameWinner = function(roundWinner) {
-        if (wins[roundWinner.name] === 3) {
-            popUps.showGameWinner(roundWinner.name);
+        if (_this.wins[roundWinner.name] === 3) {
+            popUps.showGameWinner(roundWinner);
             _this.clearScoresTable();
         } else {
-            popUps.showRoundWinner(roundWinner.name);
+            popUps.showRoundWinner(roundWinner);
         }
     };
-}
+};
 
 module.exports = RoundsHandler;

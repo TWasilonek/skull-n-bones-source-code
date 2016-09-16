@@ -10,20 +10,24 @@ document.addEventListener('DOMContentLoaded', function(){
         token: ''
     };
     var p2 = {
-        name : 'Komputer',
+        name : '',
         token: ''
     };
+    // var gameInitialized = false;
+    // var initializeGame = function() {
+    //     gameInitialized = true;  
+    // };
     
-    var player = new SetPlayer(p1);
-    player.init();
-    
-    var loop = new MainLoop(p1, p2);
-    loop.init();
-    
-    var popUpsControl = new popUp();
+    var popUpsControl = new popUp(p1, p2);
     popUpsControl.init();
     
     var tokenControl = new Token(p1, p2);
     tokenControl.init();
+    
+    var player = new SetPlayer(p1, p2);
+    player.init();
+    
+    var loop = new MainLoop(p1, p2);
+    loop.init();
     
 });

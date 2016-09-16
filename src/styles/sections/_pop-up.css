@@ -25,22 +25,6 @@
 /* story and introduction */
 .story--pop-up {
 }
-
-/*.story-images {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 3rem;
-    
-    img {
-        display: block;
-        width: 150px;
-        height: 150px;
-        border: 2px solid black;
-        border-radius: 50%;
-        overflow: hidden;
-    }
-}*/
-
 .story-text {
     font-size: 3em;
     text-align: center;
@@ -59,7 +43,7 @@
 
 input[class="p-name-input"] {
     width: 19.5rem;
-    font-size: 3em;
+    font-size: 2.4em;
     text-align: center;
     background: transparent;
     color: #393939;
@@ -86,13 +70,14 @@ input[class="p-name-input"] {
 
 .token-text {
     font-size: 3em;
-    max-width: 39rem;
+    max-width: 80rem;
+    text-align: center;
 }
 
 .tokens {
     position: relative;
    /* @mixin flex-center-sb;*/
-    width: 24em;
+    width: 24rem;
     height: 8rem;
     margin: 2.2rem auto; 
 }
@@ -119,17 +104,17 @@ input[class="p-name-input"] {
     }
 }
 
+.pop-up-winner-text {
+    font-size: 4em;
+    margin-bottom: 4.5rem;
+}
+
 /* round draw */
 .round-draw--pop-up {
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
     align-items: center;
-    
-    .pop-up-winner-text {
-        font-size: 4em;
-        margin-bottom: 4.5rem;
-    }
     
     .draw-btn {
         margin-bottom: 4.5rem;
@@ -138,10 +123,32 @@ input[class="p-name-input"] {
 
 /* round win */
 .round-win--pop-up {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
     
+    .round-btn {
+         margin-bottom: 4.5rem;
+     }   
 }
 
 /* game win */
 .game-win--pop-up {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
     
+    .game-winner-text {
+        margin-bottom: 0;
+        text-align: center;
+    }
+    .game-winner {
+        font-size: 5em;
+        margin-bottom: 1rem;
+    }
+    .game-btn {
+         margin-bottom: 4.5rem;
+     } 
 }

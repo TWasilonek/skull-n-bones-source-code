@@ -37,16 +37,16 @@
         
           <h3 class="story-action-desc">Enter your names:</h3>
           <div class="player-name-inputs">
-            <input type="text" name="playerOneName" id="p_1_Name_input" class="p-name-input" placeholder="Player 1"/>
-            <input type="text" name="playerTwoName" id="p_2_Name_input" class="p-name-input" placeholder = "Player 2"/>
+            <input type="text" name="playerOneName" id="p_1_Name_input" class="p-name-input" placeholder="Player 1" maxlength="20"/>
+            <input type="text" name="playerTwoName" id="p_2_Name_input" class="p-name-input" placeholder = "Player 2" maxlength="20"/>
           </div>
           <button type="submit" class="cta-btn story-btn center-block" id="story-cta">Continue<span class="btn-arrow"></span></button>
       </article>
       
       <article class="pop-up token--pop-up" id="token-pop-up">
         <p class="token-text center-block">Good! Now remember - life ain't fair!</p>
-        <p class="token-text center-block">Only <span class="red-color"><span data-player-name="player-one-name"></span> can choose a token.</span></p>
-        <p class="token-text center-block"><span data-player-name="player-two-name"></span> remains with what's left.</p>
+        <p class="token-text center-block">Only <span class="red-color" data-player-name="player-one-name"></span> can choose a token.</span></p>
+        <p class="token-text center-block"><span class="red-color" data-player-name="player-two-name"></span> remains with what's left.</p>
         <div class="tokens">
           <div class="token-choice" data-token-choice="skull"><img src="/dist/assets/images/token-skull.png" alt="token - bones"></div>
           <div class="token-choice" data-token-choice="bones"><img src="/dist/assets/images/token-bones.png" alt="token - bones"></div>
@@ -60,39 +60,37 @@
       </article>
       
       <article class="pop-up round-win--pop-up" id="round-win-pop-up">
-        <p class="pop-up-winner-text round-winner-text"><span class="pop-up-winner round-winner red-color" id="round-winner"></span data-player-name> won this round!</p>
-        <button type="button" class="cta-btn" id="next-round">Next Round<span class="btn-arrow"></span></button>
+        <p class="pop-up-winner-text round-winner-text"><span class="pop-up-winner round-winner red-color" id="round-winner">Player 1</span> won this round!</p>
+        <button type="button" class="cta-btn round-btn" id="next-round">Next Round<span class="btn-arrow"></span></button>
       </article>
       
       <article class="pop-up game-win--pop-up" id="game-win-pop-up">
         <p class="pop-up-winner-text game-winner-text">Good game boys... but the winner can be only one:</p>
-        <span class="pop-up-winner game-winner red-color" id="game-winner" data-player-name></span>
-        <button type="button" class="cta-btn" id="play-again">Play again<span class="btn-arrow"></span></button>
+        <span class="pop-up-winner game-winner red-color" id="game-winner"></span>
+        <button type="button" class="cta-btn win-btn" id="play-again">Play again<span class="btn-arrow"></span></button>
       </article>
-    
-    <main class="game">
-      <nav class="main-nav">
-        <div class="logo"></div>
-        <div class="controls"></div>
-      </nav>
-      <!-- main-nav end -->
+      <!-- pop ups end -->
       
       <section class="game-state-display center-block">
         <div class="player player-1" data-player-name="player-one-name">
-          <span class="player-UI-name" data-player-token="skull">Player 1</span>
+          <span class="player-UI-name" data-player-token="skull"></span>
           <img src="/dist/assets/images/player-image-skull.png" alt="" class="player-token-image" data-player-token="skull">
         </div>
         <div class="score">
           <!--<span class="score-title">Score</span>-->
           <ol class="player-score score-player-1" data-player-token="skull">
-            <li><span class="score-img"></span></li>
+            <!--<li><span class="score-img"></span></li>
+            <li><span class="score-img"></span><span class="score-img"></span></li>
+            <li><span class="score-img"></span><span class="score-img"></span><span class="score-img"></span></li>-->
           </ol>
           <ol class="player-score score-player-2" data-player-token="bones">
-            <li><span class="score-img"></span></li>
+            <!--<li><span class="score-img"></span></li>
+            <li><span class="score-img"></span><span class="score-img"></span></li>
+            <li><span class="score-img"></span><span class="score-img"></span><span class="score-img"></span></li>-->
           </ol>
         </div>
         <div class="player player-2" data-player-name="player-two-name">
-          <span class="player-UI-name" data-player-token="bones">Player 2</span>
+          <span class="player-UI-name" data-player-token="bones"></span>
           <img src="/dist/assets/images/player-image-bones.png" alt="" class="player-token-image" data-player-token="bones">
         </div>
       </section>

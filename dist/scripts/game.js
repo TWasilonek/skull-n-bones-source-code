@@ -11,21 +11,25 @@ document.addEventListener('DOMContentLoaded', function(){
         token: ''
     };
     var p2 = {
-        name : 'Komputer',
+        name : '',
         token: ''
     };
+    // var gameInitialized = false;
+    // var initializeGame = function() {
+    //     gameInitialized = true;  
+    // };
     
-    var player = new SetPlayer(p1);
-    player.init();
-    
-    var loop = new MainLoop(p1, p2);
-    loop.init();
-    
-    var popUpsControl = new popUp();
+    var popUpsControl = new popUp(p1, p2);
     popUpsControl.init();
     
     var tokenControl = new Token(p1, p2);
     tokenControl.init();
+    
+    var player = new SetPlayer(p1, p2);
+    player.init();
+    
+    var loop = new MainLoop(p1, p2);
+    loop.init();
     
 });
 },{"./main-loop.js":2,"./player-name.js":3,"./pop-up.js":4,"./token.js":6}],2:[function(require,module,exports){
@@ -53,13 +57,16 @@ function MainLoop(p1,p2) {
     ]
     
     this.init = function() {
-        rounds.init();
         $fields.on('click', function(){
             _this.resolveTurn( $(this) );
         });
     };
     
     this.resolveTurn = function($targetField) {
+        // if rounds.wins is still empty, add to it initial vlues of 0, else don't do nothing with it
+        if ( $.isEmptyObject(rounds.wins) ) {
+            rounds.init();
+        };
         // check if the field is empty
         if ( $targetField.attr('data-taken')) {
             return;
@@ -133,34 +140,47 @@ function MainLoop(p1,p2) {
 // export the main loop
 module.exports = MainLoop;
 },{"./rounds-handler.js":5}],3:[function(require,module,exports){
-function SetPlayer (player) {
+function SetPlayer (p1, p2) {
     var _this = this;
     
-    var playerNames = document.querySelector('.player-name-inputs');
-    var playerOneName = document.getElementById('p_1_Name_input');
-    var playerTwoName = document.getElementById('p_2_Name_input');
-    var submit = document.getElementById('story-cta');
+    var playerNames = $('.player-name-inputs');
+    var playerOneName = $('#p_1_Name_input');
+    var playerTwoName = $('#p_2_Name_input');
+    var submit = $('#story-cta');
 
     this.init = function() {
-       
-        $(playerNames).on('change', '.p-name-input', function(){
+       submit.attr('disabled', true);
+        playerNames.on('change', '.p-name-input', function(){
             _this.submitBtnHandler(this);
+            _this.setPlayerName( $(this) );
         });
 
     };
     
+    // checks if both players have entered their names
     this.submitBtnHandler = function(trigger) { 
-       console.log( trigger.name + ': my name is changing... ' + trigger.value );
+       if ( playerOneName.val() && playerTwoName.val() ) {
+           // if both P1 and P2 names are entered, enable the "Continue" button
+           submit.attr('disabled', false);
+       }
     };
     
-    this.setPlayerName = function(){
-      
+    // set P1 and P2 names
+    this.setPlayerName = function(playerNameField){
+      if (playerNameField.is(playerOneName)) {
+          p1.name = playerNameField.val();
+      } else {
+          p2.name = playerNameField.val();
+      }
+    //   console.log ('p1 name '+p1.name, 'p2 name ' + p2.name);
     };
 }
 
 module.exports = SetPlayer;
 },{}],4:[function(require,module,exports){
-function PopUp () {
+// import dependencies
+
+function PopUp (p1, p2) {
     //vars
     var _this = this;
     var popUpBg = $('.pop-up-background');
@@ -189,12 +209,21 @@ function PopUp () {
         
         // event listeners for buttons
         buttons['choose token'].on('click', function(){
+            // set player 1 and player 2 names
+            windows['token'].find('[data-player-name="player-one-name"]').text(p1.name);
+            windows['token'].find('[data-player-name="player-two-name"]').text(p2.name);
             windows['story'].fadeOut();
             windows['token'].fadeIn();
         });
         buttons['play'].on('click', function(){
+            _this.setPlayersOnScoresTable(p1,p2);
             windows['token'].fadeOut();
             popUpBg.fadeOut();
+            // after sometime set the tokens to their default positions
+            setTimeout(function(){
+               $('.token-choice').attr('style','');
+               $('.token-choice').attr('data-token-p1-choice', 'false');
+            }, 2000);
         });
         buttons['next round'].on('click', function(){
             windows['round'].fadeOut(function(){
@@ -214,9 +243,9 @@ function PopUp () {
         });
     };
     
-    // show round winner
+    // show round winner (accepts player object)
     this.showRoundWinner = function (player) {
-        windows['round'].find('#round-winner').text(player);
+        windows['round'].find('#round-winner').text(player.name);
         windows['round'].fadeIn();
         popUpBg.fadeIn();
     };
@@ -227,11 +256,44 @@ function PopUp () {
         popUpBg.fadeIn();
     };
     
-    // show game winner
+    // show game winner (accepts player object)
     this.showGameWinner = function (player) {
-        windows['game'].find('#game-winner').text(player);
+        windows['game'].find('#game-winner').text(player.name);
         windows['game'].fadeIn();
         popUpBg.fadeIn();
+    };
+    
+    // put all player data in scores section
+    this.setPlayersOnScoresTable = function(p1,p2) {
+        // Player representations (name and image)
+        var playerRep1 = $('[data-player-name="player-one-name"]');
+        var playerRep2 = $('[data-player-name="player-two-name"]');
+        // score displays
+        var scoresDisplayForP1 = $('.score-player-1');
+        var scoresDisplayForP2 = $('.score-player-2');
+        
+        // set players names and token representations
+        var player1Name = playerRep1.find('.player-UI-name');
+        var player1Image = playerRep1.find('.player-token-image');
+        var player2Name = playerRep2.find('.player-UI-name');
+        var player2Image = playerRep2.find('.player-token-image');
+        
+        // player one attributes
+        player1Name.text(p1.name);
+        player1Name.attr('data-player-token', p1.token);
+        player1Image.attr('data-player-token', p1.token);
+        player1Image.attr('src', '/dist/assets/images/player-image-'+ p1.token +'.png');
+        // player two attributes
+        player2Name.text(p2.name);
+        player2Name.attr('data-player-token', p2.token);
+        player2Image.attr('data-player-token', p2.token);
+        player2Image.attr('src', '/dist/assets/images/player-image-'+ p2.token +'.png');
+        
+        // associate players with scores tables
+        scoresDisplayForP1.attr('data-player', p1.name);
+        scoresDisplayForP1.attr('data-player-token', p1.token);
+        scoresDisplayForP2.attr('data-player', p2.name);
+        scoresDisplayForP2.attr('data-player-token', p2.token);
     };
     
 };
@@ -253,30 +315,26 @@ var popUps = new PopUps();
 function RoundsHandler(p1, p2, maxWins) {
     var _this = this;
     var maxWins = maxWins || 3;
+    var winImage = '<span class="score-img"></span>';
     
     // wins counter
-    var wins = {}
-    
-    // displays
-    var scoresDisplayForP1 = $('.score-player-1');
-    var scoresDisplayForP2 = $('.score-player-2');
+    this.wins = {}
     
     this.init = function() {
-        //associate players with scores tables
-        scoresDisplayForP1.attr('data-player', p1.name);
-        scoresDisplayForP2.attr('data-player', p2.name);
         // add initial wins to players
-        wins[p1.name] = 0;
-        wins[p2.name] = 0;
+        _this.wins[p1.name] = 0;
+        _this.wins[p2.name] = 0;
     };
     
      // update the scores
     this.updateScoresTable = function(winner) {
-        wins[winner.name]++
-        var newWin = '<li class="player-win">' + wins[winner.name] + '</li>'
+        _this.wins[winner.name]++;
+        var newWin = '<li class="player-win">' + winImage.repeat(_this.wins[winner.name]) + '</li>';
         // show score in UI
         $('.player-score[data-player="'+ winner.name +'"]').append(newWin);
-        _this.checkGameWinner(winner);
+        setTimeout(function(){
+            _this.checkGameWinner(winner);
+        },500);
     };
     
     // draw handler
@@ -287,20 +345,20 @@ function RoundsHandler(p1, p2, maxWins) {
     // clear the scores
     this.clearScoresTable = function() {
         $('.player-score').empty();
-        wins[p1.name] = 0;
-        wins[p2.name] = 0;
+        _this.wins[p1.name] = 0;
+        _this.wins[p2.name] = 0;
     };
     
     // check if any of the players has won the game
     this.checkGameWinner = function(roundWinner) {
-        if (wins[roundWinner.name] === 3) {
-            popUps.showGameWinner(roundWinner.name);
+        if (_this.wins[roundWinner.name] === 3) {
+            popUps.showGameWinner(roundWinner);
             _this.clearScoresTable();
         } else {
-            popUps.showRoundWinner(roundWinner.name);
+            popUps.showRoundWinner(roundWinner);
         }
     };
-}
+};
 
 module.exports = RoundsHandler;
 },{"./pop-up.js":4}],6:[function(require,module,exports){
@@ -313,6 +371,9 @@ function Token (p1, p2) {
    
    // initialize tokens
    this.init = function () {
+        // disable play button
+        $('#play-game').attr('disabled', true);
+        // event listener on tokens
         $('.tokens').on('click', '.token-choice' ,function(){
             _this.assignTokens(this);
             _this.playerOneChoseToken($(this));
@@ -321,19 +382,21 @@ function Token (p1, p2) {
    
    // assign tokens
    this.assignTokens = function (playerChoice) {
-       // assign player token
-       p1.token = playerChoice.getAttribute('data-token-choice');
-       // assign computer toekn
-       for (var token in tokens) {
-           if (tokens.hasOwnProperty(token)) {
-               if (token !== p1.token) {
+        // assign player token
+        p1.token = playerChoice.getAttribute('data-token-choice');
+        // assign computer toekn
+        for (var token in tokens) {
+            if (tokens.hasOwnProperty(token)) {
+                if (token !== p1.token) {
                    p2.token = token;
-               } 
-           }
-       }
-       //set player one choice
-       playerChoice.setAttribute('data-token-p1-choice', 'true');
-       console.log(p1, p2);
+                } 
+            }
+        }
+        //set player one choice
+        playerChoice.setAttribute('data-token-p1-choice', 'true');
+        // enable play button
+        $('#play-game').attr('disabled', false);
+        
    };
    
    // show that player one chose the token

@@ -22,13 +22,16 @@ function MainLoop(p1,p2) {
     ]
     
     this.init = function() {
-        rounds.init();
         $fields.on('click', function(){
             _this.resolveTurn( $(this) );
         });
     };
     
     this.resolveTurn = function($targetField) {
+        // if rounds.wins is still empty, add to it initial vlues of 0, else don't do nothing with it
+        if ( $.isEmptyObject(rounds.wins) ) {
+            rounds.init();
+        };
         // check if the field is empty
         if ( $targetField.attr('data-taken')) {
             return;

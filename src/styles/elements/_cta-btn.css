@@ -24,3 +24,18 @@
     background-repeat: no-repeat;
     background-position: -2px -2px;
 }
+
+.cta-btn[disabled]  {
+    color: #000;
+    opacity: .5;
+    
+    &:hover, &:active, &:focus {
+        color: #000;
+    }
+    
+    &:hover>.btn-arrow, &:active>.btn-arrow {
+        width: 34px;
+        height: 30px;
+        background-position: -2px -2px;
+    }
+}
