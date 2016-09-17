@@ -1,0 +1,32 @@
+@media only screen and (max-width: 1100px) {
+    .game-board {
+        top: 55%;
+        margin-left: -18rem;
+        width: 36rem;
+        height: 36rem;
+        background-size: contain;
+    }
+    .field {
+        width: 10rem;
+        height: 10rem;
+        margin-left: .75rem;
+        margin-top: .6rem;
+        /* background-size: 83px; */
+    }
+}
+@media only screen and (max-width: 840px) {
+    .game-board {
+        top: 55%;
+        left: 50%;
+        margin-left: -23.7rem;
+        width: 47.4rem;
+        height: 47.4rem;
+    }
+    .field {
+        width: 14rem;
+        height: 14rem;
+        margin-left: .5rem;
+        margin-top: .5rem;
+        background-size: initial;
+    }
+}

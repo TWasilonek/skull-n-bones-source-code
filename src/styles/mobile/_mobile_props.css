@@ -1,0 +1,20 @@
+@media only screen and (max-width: 1100px) {
+    .game-props-knife {
+        left: 0;
+        top: 18rem;
+    }
+    
+    .game-props-coins {
+        top: 25rem;
+        right: 0;
+    }
+}
+
+@media only screen and (max-width: 840px) {
+    .game-props-knife {
+        display: none;
+    }
+    .game-props-coins {
+        display: none;
+    }
+}

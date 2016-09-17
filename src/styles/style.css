@@ -30,6 +30,8 @@
 /* ---- Global ----- */
 
 /* ----- Sections ----- */
-
+@import mobile/mobile_game;
+@import mobile/mobile_props;
+@import mobile/mobile_game-board;
+@import mobile/mobile_token;
 /* ----- ELements ----- */
-@import mobile/mobile_logo;
