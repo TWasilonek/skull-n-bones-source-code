@@ -41,6 +41,9 @@ function PopUp (p1, p2) {
             _this.setPlayersOnScoresTable(p1,p2);
             windows['token'].fadeOut();
             popUpBg.fadeOut();
+            // add active-player style to player 1
+            $('.player.player-1').find('.player-UI-name').addClass('active-player-box');
+            $('.player.player-2').find('.player-UI-name').removeClass('active-player-box');
             // after sometime set the tokens to their default positions
             setTimeout(function(){
                $('.token-choice').attr('style','');
@@ -53,11 +56,17 @@ function PopUp (p1, p2) {
                 windows['round'].find('#round-winner').text('');
             });
             popUpBg.fadeOut();
+            // add active-player style to player 1
+            $('.player.player-1').find('.player-UI-name').addClass('active-player-box');
+            $('.player.player-2').find('.player-UI-name').removeClass('active-player-box');
         });
         buttons['draw round'].on('click', function(e){
             e.preventDefault();
             windows['draw'].fadeOut();
             popUpBg.fadeOut();
+            // add active-player style to player 1
+            $('.player.player-1').find('.player-UI-name').addClass('active-player-box');
+            $('.player.player-2').find('.player-UI-name').removeClass('active-player-box');
         });
         buttons['play again'].on('click', function(e){
             e.preventDefault();

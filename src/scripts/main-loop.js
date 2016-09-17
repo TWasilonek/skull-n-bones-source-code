@@ -43,10 +43,18 @@ function MainLoop(p1,p2) {
                 turns++;
                 $targetField.attr('data-taken', p1.token);
                 $targetField.attr('data-player', p1.name);
+                setTimeout(function(){
+                    $('.player.player-2').find('.player-UI-name').addClass('active-player-box');
+                    $('.player.player-1').find('.player-UI-name').removeClass('active-player-box');
+                },100);
             } else {
                 turns++;
                 $targetField.attr('data-taken', p2.token);
                 $targetField.attr('data-player', p2.name);
+                setTimeout(function(){
+                    $('.player.player-1').find('.player-UI-name').addClass('active-player-box');
+                    $('.player.player-2').find('.player-UI-name').removeClass('active-player-box');
+                },100);
             }   
         }
         // check if someone has won

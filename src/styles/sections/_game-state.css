@@ -46,6 +46,8 @@
 }
 
 .player-UI-name {
+    padding: .5rem;
+    
     &[data-player-token="bones"] {
         margin-bottom: 1.9rem;
     }

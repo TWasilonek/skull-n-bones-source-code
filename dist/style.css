@@ -455,7 +455,9 @@ noscript {
 .player-token-image[data-player-token="skull"] {
     width: 60px;
 }
-.player-UI-name {}
+.player-UI-name {
+    padding: .5rem;
+}
 .player-UI-name[data-player-token="bones"] {
     margin-bottom: 1.9rem;
 }
@@ -855,19 +857,12 @@ input[class="p-name-input"]:focus::-moz-placeholder {
     display: -ms-inline-flexbox;
     display: inline-flex;
 }
-/*[data-taken="p1"] {
-  background: red;
-  &:hover {
-     background: red;
-  }
+.active-player-box {
+    box-shadow: 0px 0px 7px 5px #601615;
+    filter: progid:DXImageTransform.Microsoft.Glow(Color=#601615,Strength=20);
+    color: #601615;
+    transition: all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
-[data-taken="p2"] {
-  background: green;
-   &:hover {
-     background: green;
-  }
-}*/
 
 /* ----- Mobile and RWD ----- */
 

@@ -15,17 +15,10 @@
   display: inline-flex;
 }
 
-/*[data-taken="p1"] {
-  background: red;
-  &:hover {
-     background: red;
-  }
+.active-player-box {
+    box-shadow: 0px 0px 7px 5px #601615;
+    filter: progid:DXImageTransform.Microsoft.Glow(Color=#601615,Strength=20);
+    color: #601615;
+    transition: all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
-[data-taken="p2"] {
-  background: green;
-   &:hover {
-     background: green;
-  }
-}*/
 
