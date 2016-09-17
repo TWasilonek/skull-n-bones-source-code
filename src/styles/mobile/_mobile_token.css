@@ -1,0 +1,30 @@
+@media only screen and (max-width: 1100px) {
+    .field[data-taken="skull"] {
+        background-size: 83px;
+        &:hover, &:active, &:focus {
+            background-size: 83px;
+        }
+    }
+    
+    .field[data-taken="bones"] {
+        background-size: 83px;
+        &:hover, &:active, &:focus {
+            background-size: 83px;
+        }
+    }
+}
+@media only screen and (max-width: 840px) {
+    .field[data-taken="skull"] {
+        background-size: initial;
+        &:hover, &:active, &:focus {
+            background-size: initial;
+        }
+    }
+    
+    .field[data-taken="bones"] {
+        background-size: initial;
+        &:hover, &:active, &:focus {
+            background-size: initial;
+        }
+    }
+}
