@@ -32,7 +32,7 @@ function RoundsHandler(p1, p2, maxWins) {
         $('.player-score[data-player="'+ winner.name +'"]').append(newWin);
         setTimeout(function(){
             _this.checkGameWinner(winner);
-        },500);
+        },300);
     };
     
     // draw handler

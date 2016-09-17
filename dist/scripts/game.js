@@ -14,10 +14,6 @@ document.addEventListener('DOMContentLoaded', function(){
         name : '',
         token: ''
     };
-    // var gameInitialized = false;
-    // var initializeGame = function() {
-    //     gameInitialized = true;  
-    // };
     
     var popUpsControl = new popUp(p1, p2);
     popUpsControl.init();
@@ -208,14 +204,16 @@ function PopUp (p1, p2) {
         windows['story'].show();
         
         // event listeners for buttons
-        buttons['choose token'].on('click', function(){
+        buttons['choose token'].on('click', function(e){
+            e.preventDefault();
             // set player 1 and player 2 names
             windows['token'].find('[data-player-name="player-one-name"]').text(p1.name);
             windows['token'].find('[data-player-name="player-two-name"]').text(p2.name);
             windows['story'].fadeOut();
             windows['token'].fadeIn();
         });
-        buttons['play'].on('click', function(){
+        buttons['play'].on('click', function(e){
+            e.preventDefault();
             _this.setPlayersOnScoresTable(p1,p2);
             windows['token'].fadeOut();
             popUpBg.fadeOut();
@@ -225,22 +223,28 @@ function PopUp (p1, p2) {
                $('.token-choice').attr('data-token-p1-choice', 'false');
             }, 2000);
         });
-        buttons['next round'].on('click', function(){
+        buttons['next round'].on('click', function(e){
+            e.preventDefault();
             windows['round'].fadeOut(function(){
                 windows['round'].find('#round-winner').text('');
             });
             popUpBg.fadeOut();
         });
-        buttons['draw round'].on('click', function(){
+        buttons['draw round'].on('click', function(e){
+            e.preventDefault();
             windows['draw'].fadeOut();
             popUpBg.fadeOut();
         });
-        buttons['play again'].on('click', function(){
+        buttons['play again'].on('click', function(e){
+            e.preventDefault();
             windows['game'].fadeOut(function(){
+                $('#play-game').attr('disabled', true);
                 windows['game'].find('#game-winner').text(''); 
                 buttons['choose token'].click();
             });
         });
+        // click event when pressing Enter
+        _this.addEnterKeyListener();
     };
     
     // show round winner (accepts player object)
@@ -296,6 +300,15 @@ function PopUp (p1, p2) {
         scoresDisplayForP2.attr('data-player-token', p2.token);
     };
     
+    this.addEnterKeyListener = function() {
+        $(document).on('keyup', function (e) {
+            var key = e.which;
+            if (key === 13) { // 13 is enter
+                $('.cta-btn:visible:enabled').click();
+            }
+        });
+    }
+    
 };
 
 module.exports = PopUp;
@@ -334,7 +347,7 @@ function RoundsHandler(p1, p2, maxWins) {
         $('.player-score[data-player="'+ winner.name +'"]').append(newWin);
         setTimeout(function(){
             _this.checkGameWinner(winner);
-        },500);
+        },300);
     };
     
     // draw handler
@@ -396,7 +409,6 @@ function Token (p1, p2) {
         playerChoice.setAttribute('data-token-p1-choice', 'true');
         // enable play button
         $('#play-game').attr('disabled', false);
-        
    };
    
    // show that player one chose the token

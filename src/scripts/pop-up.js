@@ -28,14 +28,16 @@ function PopUp (p1, p2) {
         windows['story'].show();
         
         // event listeners for buttons
-        buttons['choose token'].on('click', function(){
+        buttons['choose token'].on('click', function(e){
+            e.preventDefault();
             // set player 1 and player 2 names
             windows['token'].find('[data-player-name="player-one-name"]').text(p1.name);
             windows['token'].find('[data-player-name="player-two-name"]').text(p2.name);
             windows['story'].fadeOut();
             windows['token'].fadeIn();
         });
-        buttons['play'].on('click', function(){
+        buttons['play'].on('click', function(e){
+            e.preventDefault();
             _this.setPlayersOnScoresTable(p1,p2);
             windows['token'].fadeOut();
             popUpBg.fadeOut();
@@ -45,22 +47,28 @@ function PopUp (p1, p2) {
                $('.token-choice').attr('data-token-p1-choice', 'false');
             }, 2000);
         });
-        buttons['next round'].on('click', function(){
+        buttons['next round'].on('click', function(e){
+            e.preventDefault();
             windows['round'].fadeOut(function(){
                 windows['round'].find('#round-winner').text('');
             });
             popUpBg.fadeOut();
         });
-        buttons['draw round'].on('click', function(){
+        buttons['draw round'].on('click', function(e){
+            e.preventDefault();
             windows['draw'].fadeOut();
             popUpBg.fadeOut();
         });
-        buttons['play again'].on('click', function(){
+        buttons['play again'].on('click', function(e){
+            e.preventDefault();
             windows['game'].fadeOut(function(){
+                $('#play-game').attr('disabled', true);
                 windows['game'].find('#game-winner').text(''); 
                 buttons['choose token'].click();
             });
         });
+        // click event when pressing Enter
+        _this.addEnterKeyListener();
     };
     
     // show round winner (accepts player object)
@@ -115,6 +123,15 @@ function PopUp (p1, p2) {
         scoresDisplayForP2.attr('data-player', p2.name);
         scoresDisplayForP2.attr('data-player-token', p2.token);
     };
+    
+    this.addEnterKeyListener = function() {
+        $(document).on('keyup', function (e) {
+            var key = e.which;
+            if (key === 13) { // 13 is enter
+                $('.cta-btn:visible:enabled').click();
+            }
+        });
+    }
     
 };
 

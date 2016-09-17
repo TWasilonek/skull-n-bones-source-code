@@ -32,7 +32,6 @@ function Token (p1, p2) {
         playerChoice.setAttribute('data-token-p1-choice', 'true');
         // enable play button
         $('#play-game').attr('disabled', false);
-        
    };
    
    // show that player one chose the token

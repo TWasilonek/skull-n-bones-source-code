@@ -13,10 +13,6 @@ document.addEventListener('DOMContentLoaded', function(){
         name : '',
         token: ''
     };
-    // var gameInitialized = false;
-    // var initializeGame = function() {
-    //     gameInitialized = true;  
-    // };
     
     var popUpsControl = new popUp(p1, p2);
     popUpsControl.init();
